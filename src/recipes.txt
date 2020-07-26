@@ -1,0 +1,321 @@
+Name	Input(s)	Output(s)	Duration	Produced With	Changes
+Conveyor Pole	Iron Rod(1), Iron Plate(1), Concrete(1)	Conveyor Pole(1)	1	Build Tool	
+Conveyor Belt	Iron Plate(1)	Conveyor Belt(1)	1	Build Tool	
+Power Line	Cable(1)	Power Line(1)	1	Build Tool	
+Power Pole	Wire(3), Iron Rod(1), Concrete(1)	Power Pole(1)	1	Build Tool	
+The HUB	HUB Parts(1)	The HUB(1)	1	Build Tool	
+Space Elevator	Concrete(500), Iron Plate(250), Iron Rod(400), Wire(1500)	Space Elevator(1)	1	Build Tool	
+Constructor	Reinforced Iron Plate(2), Cable(8)	Constructor(1)	1	Build Tool	Input Amt Changed: Reinforced Iron Plate(3=>2), Input Amt Changed: Cable(2=>8)
+Miner Mk.1	Portable Miner(1), Iron Plate(10), Concrete(10)	Miner Mk.1(1)	1	Build Tool	Input Added: Iron Plate(10), Input Amt Changed: Concrete(5=>10), Input Removed: Iron Rod(5)
+Smelter	Iron Rod(5), Wire(8)	Smelter(1)	1	Build Tool	
+Storage Container	Iron Plate(10), Iron Rod(10)	Storage Container(1)	1	Build Tool	
+Craft Bench	Iron Plate(3), Iron Rod(3)	Craft Bench(1)	1	Build Tool	
+Equipment Workshop	Iron Plate(5), Iron Rod(5)	Equipment Workshop(1)	1	Build Tool	Input Amt Changed: Iron Plate(6=>5), Input Amt Changed: Iron Rod(6=>5)
+Portable Miner	Iron Plate(3), Iron Rod(3)	Portable Miner(1)	40	Workshop	Input Amt Changed: Iron Plate(4=>3), Input Added: Iron Rod(3), Input Removed: Wire(8), Input Removed: Cable(4)
+Cable	Wire(2)	Cable(1)	2	Constructor, Workbench	Duration Changed(4.0=>2.0)
+Wire	Copper Ingot(1)	Wire(2)	4	Constructor, Workbench	Output Amt Changed: Wire(3=>2)
+Copper Ingot	Copper Ore(1)	Copper Ingot(1)	2	Smelter, Workbench	Duration Changed(8.0=>2.0)
+Reinforced Iron Plate	Iron Plate(6), Screw(12)	Reinforced Iron Plate(1)	12	Assembler, Workbench	Input Amt Changed: Iron Plate(4=>6), Input Amt Changed: Screw(24=>12)
+Concrete	Limestone(3)	Concrete(1)	4	Constructor, Workbench	
+Screw	Iron Rod(1)	Screw(4)	6	Constructor, Workbench	Output Amt Changed: Screw(6=>4), Duration Changed(4.0=>6.0)
+Biomass (Leaves)	Leaves(10)	Biomass(5)	5	Constructor, Workbench	Output Amt Changed: Biomass(6=>5), Duration Changed(4.0=>5.0)
+Biomass (Wood)	Wood(4)	Biomass(20)	4	Constructor, Workbench	Input Amt Changed: Wood(5=>4), Output Amt Changed: Biomass(25=>20)
+Biomass Burner	Iron Plate(15), Iron Rod(15), Wire(25)	Biomass Burner(1)	1	Build Tool	Input Amt Changed: Iron Plate(10=>15), Input Amt Changed: Iron Rod(10=>15), Input Amt Changed: Wire(15=>25)
+Solid Biofuel	Biomass(8)	Solid Biofuel(4)	4	Constructor, Workbench	Input Amt Changed: Biomass(4=>8), Output Amt Changed: Solid Biofuel(2=>4)
+Iron Plate	Iron Ingot(3)	Iron Plate(2)	6	Constructor, Workbench	Input Amt Changed: Iron Ingot(2=>3), Output Amt Changed: Iron Plate(1=>2), Duration Changed(4.0=>6.0)
+Iron Rod	Iron Ingot(1)	Iron Rod(1)	4	Constructor, Workbench	
+Xeno-Zapper	Iron Rod(10), Reinforced Iron Plate(2), Cable(15), Wire(50)	Xeno-Zapper(1)	40	Workshop	
+Coal	Coal(1)	Coal(1)	2	Miner	
+Crude Oil	Crude Oil(1)	Crude Oil(1)	2	Oil Extractor	Input Added: Crude Oil(1), Input Removed: Desc_CrudeOil_C(1), Output Added: Crude Oil(1), Output Removed: Desc_CrudeOil_C(1)
+Limestone	Limestone(1)	Limestone(1)	2	Miner	
+Bauxite	Bauxite(1)	Bauxite(1)	2	Miner	
+Caterium Ore	Caterium Ore(1)	Caterium Ore(1)	2	Miner	
+Copper Ore	Copper Ore(1)	Copper Ore(1)	2	Miner	
+Iron Ore	Iron Ore(1)	Iron Ore(1)	2	Miner	
+Uranium	Uranium(1)	Uranium(1)	2	Miner	
+Raw Quartz	Raw Quartz(1)	Raw Quartz(1)	2	Miner	
+Sulfur	Sulfur(1)	Sulfur(1)	2	Miner	
+Iron Ingot	Iron Ore(1)	Iron Ingot(1)	2	Smelter, Workbench	Duration Changed(8.0=>2.0)
+Fence 1	Iron Rod(5)	Fence 1(1)	1	Build Tool	
+Stairs	Concrete(4), Iron Plate(2)	Stairs(1)	1	Build Tool	
+Wall Conveyor Perpendicular	Iron Plate(3), Concrete(3)	Wall Conveyor Perpendicular(1)	1	Build Tool	
+Wall Conveyor Perpendicular	Iron Plate(3), Concrete(3)	Wall Conveyor Perpendicular(1)	1	Build Tool	
+Window 8m x 4m 03	Iron Plate(3), Concrete(3)	Window 8m x 4m 03(1)	1	Build Tool	
+Window 8m x 4m 03	Iron Plate(3), Concrete(3)	Window 8m x 4m 03(1)	1	Build Tool	
+Alternate: Adhered Iron Plate	Iron Plate(3), Rubber(2)	Reinforced Iron Plate(1)	16	Assembler	new
+Circuit Board	Copper Sheet(2), Plastic(4)	Circuit Board(1)	8	Assembler, Workbench	Input Added: Copper Sheet(2), Input Amt Changed: Plastic(6=>4), Input Removed: Wire(12), Output Amt Changed: Circuit Board(2=>1), Duration Changed(12.0=>8.0)
+Oil Extractor	Motor(15), Encased Industrial Beam(20), Cable(60)	Oil Extractor(1)	1	Build Tool	Input Amt Changed: Motor(10=>15), Input Added: Encased Industrial Beam(20), Input Amt Changed: Cable(30=>60), Input Removed: Heavy Modular Frame(5)
+Refinery	Motor(10), Encased Industrial Beam(10), Steel Pipe(30), Copper Sheet(20)	Refinery(1)	1	Build Tool	Input Amt Changed: Motor(8=>10), Input Added: Encased Industrial Beam(10), Input Amt Changed: Steel Pipe(20=>30), Input Added: Copper Sheet(20), Input Removed: Heavy Modular Frame(4), Input Removed: Cable(25)
+Fuel	Crude Oil(6)	Fuel(4), Polymer Resin(3)	6	Oil Refinery	new
+Petroleum Coke	Heavy Oil Residue(2)	Petroleum Coke(6)	6	Oil Refinery	new
+Plastic	Crude Oil(3)	Plastic(2), Heavy Oil Residue(1)	6	Oil Refinery	Input Added: Crude Oil(3), Input Removed: Desc_CrudeOil_C(4), Output Amt Changed: Plastic(3=>2), Output Added: Heavy Oil Residue(2), Duration Changed(8.0=>6.0)
+Rubber	Crude Oil(3)	Rubber(2), Heavy Oil Residue(2)	6	Oil Refinery	Input Added: Crude Oil(3), Input Removed: Desc_CrudeOil_C(4), Output Amt Changed: Rubber(4=>2), Output Added: Heavy Oil Residue(1), Duration Changed(8.0=>6.0)
+Residual Fuel	Heavy Oil Residue(3)	Fuel(2)	6	Oil Refinery	new
+Residual Plastic	Polymer Resin(3), Water(2)	Plastic(1)	6	Oil Refinery	new
+Residual Rubber	Polymer Resin(2), Water(4)	Rubber(1)	6	Oil Refinery	new
+Alternate: Bolted Frame	Reinforced Iron Plate(3), Screw(56)	Modular Frame(2)	24	Assembler	new
+Modular Frame	Reinforced Iron Plate(3), Iron Rod(12)	Modular Frame(2)	60	Assembler, Workbench	Input Amt Changed: Iron Rod(6=>12), Output Amt Changed: Modular Frame(1=>2), Duration Changed(15.0=>60.0)
+Rotor	Iron Rod(5), Screw(25)	Rotor(1)	15	Assembler, Workbench	Input Amt Changed: Iron Rod(3=>5), Input Amt Changed: Screw(22=>25), Duration Changed(10.0=>15.0)
+Assembler	Reinforced Iron Plate(8), Rotor(4), Cable(10)	Assembler(1)	1	Build Tool	Input Added: Reinforced Iron Plate(8), Input Removed: Modular Frame(3)
+Copper Sheet	Copper Ingot(2)	Copper Sheet(1)	6	Constructor, Workbench	new
+Smart Plating	Reinforced Iron Plate(1), Rotor(1)	Smart Plating(1)	30	Assembler	new
+Alternate: Coated Cable	Wire(7), Heavy Oil Residue(2)	Cable(9)	8	Oil Refinery	new
+Alternate: Coated Iron Plate	Iron Ingot(10), Plastic(4)	Iron Plate(15)	12	Assembler	new
+Alternate: Coke Steel Ingot	Iron Ore(15), Petroleum Coke(15)	Steel Ingot(20)	12	Foundry	new
+Alternate: Copper Alloy Ingot	Copper Ore(10), Iron Ore(5)	Copper Ingot(20)	12	Foundry	new
+Alternate: Copper Rotor	Copper Sheet(6), Screw(52)	Rotor(3)	16	Assembler	new
+Alternate: Diluted Packaged Fuel	Packaged Heavy Oil Residue(3), Water(3)	Packaged Fuel(4)	4	Oil Refinery	new
+Alternate: Electrode - Aluminum Scrap	Alumina Solution(3), Coal(1)	Aluminum Scrap(5), Water(1)	2	Oil Refinery	new
+Electromagnetic Control Rod	Stator(3), A.I. Limiter(2)	Electromagnetic Control Rod(2)	30	Assembler, Workbench	Output Amt Changed: Electromagnetic Control Rod(1=>2)
+Encased Uranium Cell	Uranium Pellet(40), Concrete(9)	Encased Uranium Cell(10)	60	Assembler, Workbench	Input Added: Uranium Pellet(40), Input Removed: Uranium(45)
+Conveyor Belt Mk.5	Alclad Aluminum Sheet(1)	Conveyor Belt Mk.5(1)	1	Build Tool	
+Conveyor Lift Mk.5	Alclad Aluminum Sheet(2)	Conveyor Lift Mk.5(1)	1	Build Tool	
+Nuclear Power Plant	Concrete(150), Heavy Modular Frame(10), Supercomputer(5), Cable(50), High-Speed Connector(15)	Nuclear Power Plant(1)	1	Build Tool	
+Alclad Aluminum Sheet	Aluminum Ingot(8), Copper Ingot(3)	Alclad Aluminum Sheet(4)	8	Assembler, Workbench	Input Amt Changed: Aluminum Ingot(3=>8), Input Amt Changed: Copper Ingot(2=>3), Output Amt Changed: Alclad Aluminum Sheet(3=>4), Duration Changed(12.0=>8.0)
+Nuclear Fuel Rod	Encased Uranium Cell(25), Encased Industrial Beam(3), Electromagnetic Control Rod(5)	Nuclear Fuel Rod(1)	150	Manufacturer	
+Iodine Infused Filter	GasFilter(1), Quickwire(8), Rubber(2)	Iodine Infused Filter(1)	16	Workshop, Manufacturer, Workbench	
+Hazmat Suit	Rubber(50), Plastic(50), Alclad Aluminum Sheet(50), Fabric(50)	Hazmat Suit(1)	120	Workshop	
+Alumina Solution	Bauxite(7), Water(10)	Alumina Solution(8), Silica(2)	6	Oil Refinery	new
+Aluminum Scrap	Alumina Solution(4), Petroleum Coke(1)	Aluminum Scrap(6), Water(1)	1	Oil Refinery	new
+Aluminum Ingot	Aluminum Scrap(12), Silica(7)	Aluminum Ingot(4)	3	Foundry, Workbench	Input Added: Aluminum Scrap(12), Input Amt Changed: Silica(6=>7), Input Removed: Bauxite(7), Output Amt Changed: Aluminum Ingot(2=>4), Duration Changed(16.0=>3.0)
+Alternate: Electrode Circuit Board	Rubber(6), Petroleum Coke(9)	Circuit Board(1)	12	Assembler	new
+Alternate: Flexible Framework	Modular Frame(1), Steel Beam(6), Rubber(8)	Versatile Framework(2)	16	Manufacturer	new
+Alternate: Fused Wire	Copper Ingot(4), Caterium Ingot(1)	Wire(30)	20	Assembler	new
+Power Pole Mk.2	Quickwire(6), Iron Rod(2), Concrete(2)	Power Pole Mk.2(1)	1	Build Tool	Input Amt Changed: Quickwire(3=>6), Input Amt Changed: Iron Rod(1=>2)
+Double-sided Wall Power Pole Mk.2	Quickwire(8), Iron Rod(3)	Double-sided Wall Power Pole Mk.2(1)	1	Build Tool	new
+Wall Power Pole Mk.2	Quickwire(4), Iron Rod(1)	Wall Power Pole Mk.2(1)	1	Build Tool	new
+Quickwire	Caterium Ingot(1)	Quickwire(5)	5	Constructor, Workbench	Output Amt Changed: Quickwire(4=>5), Duration Changed(4.0=>5.0)
+Blade Runners	Quickwire(50), Modular Frame(3), Rotor(3)	Blade Runners(1)	80	Workshop	
+Caterium Ingot	Caterium Ore(3)	Caterium Ingot(1)	4	Smelter, Workbench	Duration Changed(16.0=>4.0)
+Alternate: Heavy Flexible Frame	Modular Frame(5), Encased Industrial Beam(3), Rubber(20), Screw(104)	Heavy Modular Frame(1)	16	Manufacturer	new
+Manufacturer	Motor(5), Heavy Modular Frame(10), Cable(50), Plastic(50)	Manufacturer(1)	1	Build Tool	Input Amt Changed: Heavy Modular Frame(5=>10), Input Amt Changed: Cable(25=>50), Input Added: Plastic(50), Input Removed: Computer(5)
+Computer	Circuit Board(10), Cable(9), Plastic(18), Screw(52)	Computer(1)	24	Manufacturer, Workbench	Input Amt Changed: Cable(12=>9), Input Amt Changed: Screw(60=>52), Duration Changed(32.0=>24.0)
+Heavy Modular Frame	Modular Frame(5), Steel Pipe(15), Encased Industrial Beam(5), Screw(100)	Heavy Modular Frame(1)	30	Manufacturer, Workbench	Input Amt Changed: Screw(90=>100)
+Modular Engine	Motor(2), Rubber(15), Smart Plating(2)	Modular Engine(1)	60	Manufacturer	new
+Adaptive Control Unit	Automated Wiring(15), Circuit Board(10), Heavy Modular Frame(2), Computer(2)	Adaptive Control Unit(2)	120	Manufacturer	new
+Truck	Motor(8), Computer(10), Heavy Modular Frame(4), Rubber(50), Beacon(10)	Truck(1)	1	Build Tool	Input Amt Changed: Computer(5=>10), Input Amt Changed: Heavy Modular Frame(2=>4)
+Alternate: Heavy Oil Residue	Crude Oil(3)	Heavy Oil Residue(4), Polymer Resin(2)	6	Oil Refinery	new
+Alternate: High-Speed Wiring	Stator(2), Cable(40), High-Speed Connector(2)	Automated Wiring(4)	32	Manufacturer	new
+Encased Industrial Beam	Steel Beam(4), Concrete(5)	Encased Industrial Beam(1)	10	Assembler, Workbench	Duration Changed(15.0=>10.0)
+Motor	Rotor(2), Stator(2)	Motor(1)	12	Assembler, Workbench	
+Stator	Steel Pipe(3), Wire(8)	Stator(1)	12	Assembler, Workbench	Input Amt Changed: Wire(10=>8), Duration Changed(10.0=>12.0)
+Miner Mk.2	Portable Miner(2), Encased Industrial Beam(10), Steel Pipe(20), Modular Frame(10)	Miner Mk.2(1)	1	Build Tool	Input Amt Changed: Encased Industrial Beam(5=>10), Input Amt Changed: Steel Pipe(10=>20), Input Added: Modular Frame(10), Input Removed: Cable(15)
+Automated Wiring	Stator(3), Cable(60)	Automated Wiring(3)	72	Assembler	new
+A.I. Limiter	Copper Sheet(5), Quickwire(20)	A.I. Limiter(1)	12	Assembler, Workbench	Input Added: Copper Sheet(5), Input Amt Changed: Quickwire(18=>20), Input Removed: Circuit Board(2)
+Alternate: Plastic Smart Plating	Reinforced Iron Plate(1), Rotor(2), Plastic(3)	Smart Plating(2)	24	Manufacturer	new
+Alternate: Polyester Fabric	Polymer Resin(16), Water(10)	Fabric(1)	12	Oil Refinery	new
+Fabric	Mycelia(1), Biomass(5)	Fabric(1)	4	Assembler, Workbench	
+Alternate: Polymer Resin	Crude Oil(6)	Polymer Resin(13), Heavy Oil Residue(2)	6	Oil Refinery	new
+Alternate: Pure Aluminum Ingot	Aluminum Scrap(12)	Aluminum Ingot(3)	5	Smelter	new
+Alternate: Pure Caterium Ingot	Caterium Ore(2), Water(2)	Caterium Ingot(1)	5	Oil Refinery	new
+Coal Generator	Reinforced Iron Plate(20), Rotor(10), Cable(30)	Coal Generator(1)	1	Build Tool	Input Added: Reinforced Iron Plate(20), Input Amt Changed: Rotor(5=>10), Input Amt Changed: Cable(15=>30), Input Removed: Modular Frame(3)
+Pipeline Support	Iron Plate(2), Concrete(2)	Pipeline Support(1)	1	Build Tool	new
+Pipeline	Copper Sheet(1)	Pipeline(1)	1	Build Tool	new
+Pipeline Junction Cross	Copper Sheet(5)	Pipeline Junction Cross(1)	1	Build Tool	new
+Pipeline Pump	Copper Sheet(2), Rotor(2)	Pipeline Pump(1)	1	Build Tool	new
+Industrial Fluid Buffer	Copper Sheet(10), Modular Frame(5)	Industrial Fluid Buffer(1)	1	Build Tool	new
+Water Extractor	Copper Sheet(20), Reinforced Iron Plate(10), Rotor(10)	Water Extractor(1)	1	Build Tool	new
+Alternate: Pure Copper Ingot	Copper Ore(6), Water(4)	Copper Ingot(15)	24	Oil Refinery	new
+Alternate: Pure Iron Ingot	Iron Ore(7), Water(4)	Iron Ingot(13)	12	Oil Refinery	new
+Alternate: Pure Quartz Crystal	Raw Quartz(9), Water(5)	Quartz Crystal(7)	8	Oil Refinery	new
+Quartz Crystal	Raw Quartz(5)	Quartz Crystal(3)	8	Constructor, Workbench	Input Amt Changed: Raw Quartz(2=>5), Output Amt Changed: Quartz Crystal(1=>3), Duration Changed(4.0=>8.0)
+Alternate: Recycled Rubber	Plastic(5), Fuel(6)	Rubber(12)	12	Oil Refinery	new
+Alternate: Rubber Concrete	Limestone(10), Rubber(4)	Concrete(9)	12	Assembler	new
+Alternate: Steamed Copper Sheet	Copper Ingot(3), Water(3)	Copper Sheet(3)	8	Oil Refinery	new
+Alternate: Steel Coated Plate	Steel Ingot(4), Plastic(4)	Iron Plate(15)	24	Assembler	new
+Alternate: Steel Rod	Steel Ingot(1)	Iron Rod(4)	5	Constructor	new
+Foundry	Modular Frame(10), Rotor(10), Concrete(20)	Foundry(1)	1	Build Tool	Input Added: Modular Frame(10), Input Added: Rotor(10), Input Removed: Encased Industrial Beam(5), Input Removed: Steel Pipe(15)
+Steel Beam	Steel Ingot(4)	Steel Beam(1)	4	Constructor, Workbench	Input Amt Changed: Steel Ingot(3=>4), Duration Changed(6.0=>4.0)
+Steel Pipe	Steel Ingot(3)	Steel Pipe(2)	6	Constructor, Workbench	Input Amt Changed: Steel Ingot(1=>3), Output Amt Changed: Steel Pipe(1=>2), Duration Changed(4.0=>6.0)
+Steel Ingot	Iron Ore(3), Coal(3)	Steel Ingot(3)	4	Foundry, Workbench	Output Amt Changed: Steel Ingot(2=>3), Duration Changed(16.0=>4.0)
+Versatile Framework	Modular Frame(1), Steel Beam(12)	Versatile Framework(2)	24	Assembler	new
+Alternate: Turbo Heavy Fuel	Heavy Oil Residue(5), Compacted Coal(4)	Turbofuel(4)	8	Oil Refinery	new
+Packaged Turbofuel	Turbofuel(1), Empty Canister(1)	Packaged Turbofuel(1)	6	Oil Refinery	new
+Unpackage Turbo Fuel	Packaged Turbofuel(1)	Turbofuel(1), Empty Canister(1)	12	Oil Refinery	new
+Alternate: Wood Coal	Wood(1)	Coal(10)	4	Constructor	
+Alternate: Biomass Coal	Biomass(5)	Coal(6)	8	Constructor	
+Alternate: Compacted Coal	Coal(5), Sulfur(5)	Compacted Coal(5)	12	Assembler	Input Amt Changed: Coal(3=>5), Input Amt Changed: Sulfur(3=>5), Output Amt Changed: Compacted Coal(3=>5), Duration Changed(6.0=>12.0)
+Alternate: Wet Concrete	Limestone(12), Water(5)	Concrete(8)	6	Oil Refinery	new
+Alternate: Crystal Beacon	Steel Beam(4), Steel Pipe(16), Crystal Oscillator(1)	Beacon(20)	120	Manufacturer	Input Amt Changed: Steel Beam(1=>4), Input Amt Changed: Steel Pipe(4=>16), Output Amt Changed: Beacon(5=>20), Duration Changed(32.0=>120.0)
+Alternate: Insulated Cable	Wire(9), Rubber(6)	Cable(20)	12	Assembler	Input Amt Changed: Wire(3=>9), Input Amt Changed: Rubber(2=>6), Output Amt Changed: Cable(10=>20), Duration Changed(8.0=>12.0)
+Alternate: Quickwire Cable	Quickwire(3), Rubber(2)	Cable(9)	24	Assembler	Input Amt Changed: Quickwire(4=>3), Output Amt Changed: Cable(12=>9), Duration Changed(8.0=>24.0)
+Alternate: Silicone Circuit Board	Copper Sheet(11), Silica(11)	Circuit Board(5)	24	Assembler	Input Added: Copper Sheet(11), Input Added: Silica(11), Input Removed: Rubber(16), Input Removed: Wire(24), Output Amt Changed: Circuit Board(6=>5)
+Alternate: Caterium Circuit Board	Plastic(10), Quickwire(30)	Circuit Board(7)	48	Assembler	Input Amt Changed: Plastic(12=>10), Output Amt Changed: Circuit Board(6=>7), Duration Changed(24.0=>48.0)
+Alternate: Caterium Computer	Circuit Board(7), Quickwire(28), Rubber(12)	Computer(1)	16	Manufacturer	Input Amt Changed: Circuit Board(20=>7), Input Amt Changed: Quickwire(80=>28), Input Amt Changed: Rubber(48=>12), Output Amt Changed: Computer(3=>1), Duration Changed(64.0=>16.0)
+Alternate: Crystal Computer	Circuit Board(8), Crystal Oscillator(3)	Computer(3)	64	Assembler	Input Amt Changed: Circuit Board(4=>8), Input Amt Changed: Crystal Oscillator(1=>3), Output Amt Changed: Computer(1=>3), Duration Changed(24.0=>64.0)
+Alternate: Fine Concrete	Silica(5), Limestone(12)	Concrete(10)	24	Assembler	Input Amt Changed: Silica(1=>5), Input Amt Changed: Limestone(4=>12), Output Amt Changed: Concrete(3=>10), Duration Changed(8.0=>24.0)
+Alternate: Insulated Crystal Oscillator	Quartz Crystal(10), Rubber(7), A.I. Limiter(1)	Crystal Oscillator(1)	32	Manufacturer	Input Amt Changed: Quartz Crystal(20=>10), Input Amt Changed: Rubber(24=>7), Output Amt Changed: Crystal Oscillator(3=>1), Duration Changed(64.0=>32.0)
+Crystal Oscillator	Quartz Crystal(36), Cable(28), Reinforced Iron Plate(5)	Crystal Oscillator(2)	120	Manufacturer, Workbench	Input Amt Changed: Quartz Crystal(10=>36), Input Amt Changed: Cable(14=>28), Input Amt Changed: Reinforced Iron Plate(4=>5), Output Amt Changed: Crystal Oscillator(1=>2), Duration Changed(32.0=>120.0)
+Alternate: Electromagnetic Connection Rod	Stator(6), High-Speed Connector(3)	Electromagnetic Control Rod(6)	60	Assembler	Output Amt Changed: Electromagnetic Control Rod(3=>6)
+Freight Platform	Heavy Modular Frame(6), Computer(2), Concrete(50), Cable(25), Motor(5)	Freight Platform(1)	1	Build Tool	
+Train Station	Heavy Modular Frame(4), Computer(8), Concrete(50), Cable(25)	Train Station(1)	1	Build Tool	
+Railway	Steel Pipe(1), Steel Beam(1)	Railway(1)	1	Build Tool	
+Sulfuric Acid	Sulfur(5), Water(5)	Sulfuric Acid(10)	6	Oil Refinery	new
+Uranium Pellet	Uranium(5), Sulfuric Acid(8)	Uranium Pellet(5), Sulfuric Acid(2)	6	Oil Refinery	new
+Freight Car	Heavy Modular Frame(4), Steel Pipe(10)	Freight Car(1)	1	Build Tool	
+Electric Locomotive	Heavy Modular Frame(5), Motor(10), Steel Pipe(15), Computer(5), Beacon(5)	Electric Locomotive(1)	1	Build Tool	
+Alternate: Fine Black Powder	Sulfur(2), Compacted Coal(1)	Black Powder(4)	16	Assembler	
+Alternate: Heat Exchanger	Alclad Aluminum Sheet(20), Copper Sheet(30)	Heat Sink(7)	32	Assembler	Input Amt Changed: Alclad Aluminum Sheet(8=>20), Input Added: Copper Sheet(30), Input Removed: Wire(36), Output Amt Changed: Heat Sink(3=>7), Duration Changed(24.0=>32.0)
+Heat Sink	Alclad Aluminum Sheet(8), Rubber(14)	Heat Sink(2)	12	Assembler, Workbench	Input Amt Changed: Alclad Aluminum Sheet(4=>8), Input Amt Changed: Rubber(10=>14), Output Amt Changed: Heat Sink(1=>2)
+Miner Mk.3	Portable Miner(3), Heavy Modular Frame(4), Steel Pipe(20), Turbo Motor(5), Computer(5)	Miner Mk.3(1)	1	Build Tool	
+Battery	Alclad Aluminum Sheet(8), Wire(16), Sulfur(20), Plastic(8)	Battery(3)	32	Manufacturer, Workbench	Input Amt Changed: Wire(24=>16), Input Amt Changed: Plastic(9=>8)
+Turbo Motor	Heat Sink(4), Radio Control Unit(2), Motor(4), Rubber(24)	Turbo Motor(1)	32	Manufacturer, Workbench	Input Amt Changed: Rubber(40=>24)
+Radio Control Unit	Heat Sink(4), Rubber(16), Crystal Oscillator(1), Computer(1)	Radio Control Unit(1)	24	Manufacturer, Workbench	Input Amt Changed: Rubber(24=>16)
+Alternate: Heavy Encased Frame	Modular Frame(8), Encased Industrial Beam(10), Steel Pipe(36), Concrete(22)	Heavy Modular Frame(3)	64	Manufacturer	Input Amt Changed: Concrete(25=>22)
+Alternate: Silicone High-Speed Connector	Quickwire(60), Silica(25), Circuit Board(2)	High-Speed Connector(2)	40	Manufacturer	Input Amt Changed: Quickwire(66=>60), Input Amt Changed: Silica(48=>25), Input Added: Circuit Board(2), Input Removed: Rubber(18), Output Amt Changed: High-Speed Connector(3=>2), Duration Changed(48.0=>40.0)
+High-Speed Connector	Quickwire(56), Cable(10), Circuit Board(1)	High-Speed Connector(1)	16	Manufacturer, Workbench	Input Amt Changed: Quickwire(40=>56), Input Added: Circuit Board(1), Input Removed: Plastic(6), Duration Changed(24.0=>16.0)
+Alternate: Iron Alloy Ingot	Iron Ore(2), Copper Ore(2)	Iron Ingot(5)	6	Foundry	Input Amt Changed: Iron Ore(1=>2), Input Amt Changed: Copper Ore(1=>2), Output Amt Changed: Iron Ingot(3=>5), Duration Changed(16.0=>6.0)
+Alternate: Solid Steel Ingot	Iron Ingot(2), Coal(2)	Steel Ingot(3)	3	Foundry	Input Amt Changed: Iron Ingot(3=>2), Input Amt Changed: Coal(6=>2), Output Amt Changed: Steel Ingot(6=>3), Duration Changed(32.0=>3.0)
+Alternate: Compacted Steel Ingot	Iron Ore(6), Compacted Coal(3)	Steel Ingot(10)	16	Foundry	Output Amt Changed: Steel Ingot(6=>10), Duration Changed(32.0=>16.0)
+Alternate: Steeled Frame	Reinforced Iron Plate(2), Steel Pipe(10)	Modular Frame(3)	60	Assembler	Input Amt Changed: Reinforced Iron Plate(6=>2), Input Amt Changed: Steel Pipe(6=>10), Duration Changed(30.0=>60.0)
+Alternate: Rigour Motor	Rotor(3), Stator(3), Crystal Oscillator(1)	Motor(5)	40	Manufacturer	Input Amt Changed: Rotor(2=>3), Input Amt Changed: Stator(2=>3), Output Amt Changed: Motor(3=>5), Duration Changed(24.0=>40.0)
+Alternate: Seismic Nobelisk	Black Powder(8), Steel Pipe(8), Crystal Oscillator(1)	Nobelisk(4)	40	Manufacturer	Input Amt Changed: Black Powder(10=>8), Input Amt Changed: Steel Pipe(10=>8), Output Amt Changed: Nobelisk(3=>4)
+Nobelisk	Black Powder(5), Steel Pipe(10)	Nobelisk(1)	20	Workshop, Assembler	Input Amt Changed: Steel Pipe(5=>10), Input Removed: Beacon(1)
+Alternate: Nuclear Fuel Unit	Encased Uranium Cell(50), Electromagnetic Control Rod(10), Crystal Oscillator(3), Beacon(6)	Nuclear Fuel Rod(3)	300	Manufacturer	
+Alternate: Recycled Plastic	Rubber(6), Fuel(5)	Plastic(12)	12	Oil Refinery	Input Amt Changed: Rubber(8=>6), Input Added: Fuel(5), Input Removed: Packaged Fuel(5), Output Amt Changed: Plastic(9=>12), Duration Changed(16.0=>12.0)
+Alternate: Fused Quckwire	Caterium Ingot(1), Copper Ingot(5)	Quickwire(12)	8	Assembler	Input Amt Changed: Copper Ingot(2=>5)
+Alternate: Radio Control System	Heat Sink(10), Supercomputer(1), Quartz Crystal(30)	Radio Control Unit(3)	48	Manufacturer	
+Alternate: Bolted Iron Plate	Iron Plate(16), Screw(50)	Reinforced Iron Plate(3)	12	Assembler	Input Amt Changed: Iron Plate(10=>16), Input Amt Changed: Screw(24=>50), Duration Changed(24.0=>12.0)
+Alternate: Stitched Iron Plate	Iron Plate(10), Wire(26)	Reinforced Iron Plate(3)	32	Assembler	Input Amt Changed: Iron Plate(6=>10), Input Amt Changed: Wire(30=>26), Duration Changed(24.0=>32.0)
+Alternate: Encased Industrial Pipe	Steel Pipe(7), Concrete(5)	Encased Industrial Beam(1)	15	Assembler	Input Amt Changed: Steel Pipe(18=>7), Input Amt Changed: Concrete(10=>5), Output Amt Changed: Encased Industrial Beam(3=>1), Duration Changed(30.0=>15.0)
+Alternate: Steel Rotor	Steel Pipe(2), Wire(12)	Rotor(1)	12	Assembler	Input Amt Changed: Steel Pipe(6=>2), Input Amt Changed: Wire(20=>12), Output Amt Changed: Rotor(3=>1), Duration Changed(20.0=>12.0)
+Alternate: Casted Screw	Iron Ingot(5)	Screw(20)	24	Constructor	Input Amt Changed: Iron Ingot(2=>5), Output Amt Changed: Screw(12=>20), Duration Changed(8.0=>24.0)
+Alternate: Steel Screw	Steel Beam(1)	Screw(52)	12	Constructor	Output Amt Changed: Screw(36=>52)
+Alternate: Cheap Silica	Raw Quartz(3), Limestone(5)	Silica(7)	16	Assembler	Input Amt Changed: Raw Quartz(4=>3), Input Amt Changed: Limestone(2=>5), Output Amt Changed: Silica(9=>7), Duration Changed(8.0=>16.0)
+Silica	Raw Quartz(3)	Silica(5)	8	Constructor, Workbench	Input Amt Changed: Raw Quartz(2=>3), Output Amt Changed: Silica(3=>5), Duration Changed(4.0=>8.0)
+Alternate: Quickwire Stator	Steel Pipe(4), Quickwire(15)	Stator(2)	15	Assembler	Input Amt Changed: Steel Pipe(6=>4), Input Amt Changed: Quickwire(20=>15), Output Amt Changed: Stator(3=>2), Duration Changed(20.0=>15.0)
+Turbofuel	Fuel(6), Compacted Coal(4)	Turbofuel(5)	16	Oil Refinery	Input Added: Fuel(6), Input Removed: Packaged Fuel(5), Output Added: Turbofuel(5), Output Removed: Packaged Turbofuel(5)
+Alternate: Turbo Rigour Motor	Motor(8), Radio Control Unit(4), A.I. Limiter(8), Stator(8)	Turbo Motor(3)	64	Manufacturer	
+Alternate: Infused Uranium Cell	Uranium Pellet(40), Sulfur(45), Silica(45), Quickwire(75)	Encased Uranium Cell(35)	120	Manufacturer	Input Added: Uranium Pellet(40), Input Amt Changed: Quickwire(60=>75), Input Removed: Uranium(45)
+Alternate: Iron Wire	Iron Ingot(5)	Wire(9)	24	Constructor	Input Amt Changed: Iron Ingot(2=>5), Duration Changed(8.0=>24.0)
+Alternate: Caterium Wire	Caterium Ingot(1)	Wire(8)	4	Constructor	Output Amt Changed: Wire(9=>8), Duration Changed(8.0=>4.0)
+Foundation 8m x 1m	Concrete(6)	Foundation 8m x 1m(1)	1	Build Tool	
+Foundation 8m x 2m	Concrete(6)	Foundation 8m x 2m(1)	1	Build Tool	
+Foundation 8m x 4m	Concrete(6)	Foundation 8m x 4m(1)	1	Build Tool	
+Ramp 8m x 1m	Concrete(3)	Ramp 8m x 1m(1)	1	Build Tool	
+Ramp 8m x 2m	Concrete(4)	Ramp 8m x 2m(1)	1	Build Tool	
+Ramp 8m x 4m	Concrete(5)	Ramp 8m x 4m(1)	1	Build Tool	
+Lookout Tower	Iron Plate(5), Iron Rod(5)	Lookout Tower(1)	1	Build Tool	
+Wall 8m x 4m	Iron Plate(3), Concrete(3)	Wall 8m x 4m(1)	1	Build Tool	
+Wall 8m x 4m	Iron Plate(3), Concrete(3)	Wall 8m x 4m(1)	1	Build Tool	
+Conveyor Merger	Iron Plate(2), Iron Rod(2)	Conveyor Merger(1)	1	Build Tool	
+Conveyor Splitter	Iron Plate(2), Cable(2)	Conveyor Splitter(1)	1	Build Tool	
+Conveyor Lift	Iron Plate(2)	Conveyor Lift(1)	1	Build Tool	
+M.A.M.	Reinforced Iron Plate(5), Cable(15), Wire(45)	M.A.M.(1)	1	Build Tool	new
+Personal Storage Box	Iron Plate(6), Iron Rod(6)	Personal Storage Box(1)	1	Build Tool	
+Beacon	Iron Plate(3), Iron Rod(1), Wire(15), Cable(2)	Beacon(1)	8	Workshop, Manufacturer	
+Object Scanner	Reinforced Iron Plate(4), Beacon(3), Screw(50)	Object Scanner(1)	40	Workshop	
+Chainsaw	Reinforced Iron Plate(5), Iron Rod(25), Screw(160), Cable(15)	Chainsaw(1)	60	Workshop	Input Amt Changed: Reinforced Iron Plate(10=>5)
+Jump Pad	Rotor(2), Iron Plate(15), Cable(10)	Jump Pad(1)	1	Build Tool	Input Added: Rotor(2), Input Added: Iron Plate(15), Input Removed: Reinforced Iron Plate(2), Input Removed: Iron Rod(5)
+Tilted Jump Pad	Rotor(2), Iron Plate(15), Cable(10)	Tilted Jump Pad(1)	1	Build Tool	Input Added: Rotor(2), Input Added: Iron Plate(15), Input Removed: Reinforced Iron Plate(2), Input Removed: Iron Rod(5)
+U-Jelly Landing Pad	Rotor(2), Cable(20), Biomass(200)	U-Jelly Landing Pad(1)	1	Build Tool	Input Added: Rotor(2), Input Removed: Iron Rod(15)
+AWESOME Sink	Reinforced Iron Plate(15), Cable(30), Concrete(45)	AWESOME Sink(1)	1	Build Tool	new
+AWESOME Shop	Screw(200), Iron Plate(10), Cable(10)	AWESOME Shop(1)	1	Build Tool	new
+Conveyor Belt Mk.2	Reinforced Iron Plate(1)	Conveyor Belt Mk.2(1)	1	Build Tool	
+Conveyor Lift Mk.2	Reinforced Iron Plate(2)	Conveyor Lift Mk.2(1)	1	Build Tool	
+Conveyor Pole Stackable	Iron Rod(2), Iron Plate(2), Concrete(2)	Conveyor Pole Stackable(1)	1	Build Tool	
+Truck Station	Modular Frame(15), Rotor(20), Cable(50)	Truck Station(1)	1	Build Tool	Input Amt Changed: Modular Frame(10=>15), Input Amt Changed: Rotor(5=>20), Input Amt Changed: Cable(25=>50)
+Tractor	Modular Frame(5), Beacon(5), Rotor(10)	Tractor(1)	1	Build Tool	Input Amt Changed: Modular Frame(2=>5)
+Xeno-Basher	Modular Frame(5), Xeno-Zapper(2), Cable(25), Wire(500)	Xeno-Basher(1)	80	Workshop	
+Hyper Tube Entrance	Encased Industrial Beam(4), Rotor(4), Steel Pipe(10)	Hyper Tube Entrance(1)	1	Build Tool	new
+Hyper Tube Support	Iron Plate(2), Concrete(2)	Hyper Tube Support(1)	1	Build Tool	new
+Hyper Tube	Copper Sheet(1), Steel Pipe(1)	Hyper Tube(1)	1	Build Tool	new
+Conveyor Belt Mk.3	Steel Beam(1)	Conveyor Belt Mk.3(1)	1	Build Tool	
+Conveyor Lift Mk.3	Steel Beam(2)	Conveyor Lift Mk.3(1)	1	Build Tool	
+Stackable Pipeline Support	Iron Plate(4), Iron Rod(2), Concrete(2)	Stackable Pipeline Support(1)	1	Build Tool	new
+Industrial Storage Container	Steel Beam(20), Steel Pipe(20)	Industrial Storage Container(1)	1	Build Tool	Input Added: Steel Beam(20), Input Amt Changed: Steel Pipe(15=>20), Input Removed: Encased Industrial Beam(15)
+Unpackage Liquid Biofuel	Packaged Liquid Biofuel(1)	Liquid Biofuel(1), Empty Canister(1)	2	Oil Refinery	new
+Unpackage Fuel	Packaged Fuel(1)	Fuel(1), Empty Canister(1)	2	Oil Refinery	new
+Unpackage Oil	Packaged Oil(1)	Crude Oil(1), Empty Canister(1)	2	Oil Refinery	new
+Unpackage Heavy Oil Residue	Packaged Heavy Oil Residue(1)	Heavy Oil Residue(1), Empty Canister(1)	6	Oil Refinery	new
+Unpackage Water	Packaged Water(2)	Water(2), Empty Canister(2)	2	Oil Refinery	new
+Industrial Fluid Buffer	Plastic(30), Heavy Modular Frame(3)	Industrial Fluid Buffer(1)	1	Build Tool	new
+Empty Canister	Plastic(3)	Empty Canister(1)	6	Constructor, Workbench	new
+Packaged Fuel	Fuel(1), Empty Canister(1)	Packaged Fuel(1)	3	Oil Refinery	Input Added: Fuel(1), Input Added: Empty Canister(1), Input Removed: Desc_CrudeOil_C(8), Output Amt Changed: Packaged Fuel(5=>1), Duration Changed(8.0=>3.0)
+Liquid Biofuel	Solid Biofuel(6), Water(3)	Liquid Biofuel(4)	4	Oil Refinery	new
+Packaged Liquid Biofuel	Liquid Biofuel(1), Empty Canister(1)	Packaged Liquid Biofuel(1)	4	Oil Refinery	new
+Packaged Oil	Crude Oil(1), Empty Canister(1)	Packaged Oil(1)	5	Oil Refinery	new
+Packaged Heavy Oil Residue	Heavy Oil Residue(1), Empty Canister(1)	Packaged Heavy Oil Residue(1)	6	Oil Refinery	new
+Packaged Water	Water(1), Empty Canister(1)	Packaged Water(1)	2	Oil Refinery	new
+Conveyor Belt Mk.4	Encased Industrial Beam(1)	Conveyor Belt Mk.4(1)	1	Build Tool	
+Conveyor Lift Mk.4	Encased Industrial Beam(2)	Conveyor Lift Mk.4(1)	1	Build Tool	
+Fuel Generator	Computer(5), Heavy Modular Frame(10), Motor(15), Rubber(50), Quickwire(50)	Fuel Generator(1)	1	Build Tool	Input Amt Changed: Motor(10=>15), Input Added: Rubber(50), Input Added: Quickwire(50), Input Removed: Cable(25)
+Jetpack	Plastic(50), Circuit Board(15), Rubber(50), Cable(25)	Jetpack(1)	120	Workshop	
+Freight Platform Liquid	Heavy Modular Frame(6), Computer(2), Concrete(50), Cable(25), Motor(5)	Freight Platform Liquid(1)	1	Build Tool	new
+Empty Platform	Heavy Modular Frame(6), Concrete(50)	Empty Platform(1)	1	Build Tool	
+GasFilter	Coal(5), Rubber(2), Fabric(2)	GasFilter(1)	8	Workshop, Manufacturer, Workbench	
+Gas mask	Rubber(100), Plastic(100), Fabric(100)	Gas mask(1)	80	Workshop	
+Biomass (Alien Carapace)	Alien Carapace(1)	Biomass(100)	4	Constructor, Workbench	
+Rebar Gun	Reinforced Iron Plate(6), Iron Rod(16), Screw(100)	Rebar Gun(1)	100	Workshop	
+Spiked Rebar	Iron Rod(1)	Spiked Rebar(1)	4	Constructor, Workshop, Workbench	
+Biomass (Alien Organs)	Alien Organs(1)	Biomass(200)	8	Constructor, Workbench	new
+Medicinal Inhaler: Alien Organs	Alien Organs(3), Mycelia(5)	Medicinal Inhaler(1)	20	Workshop	
+Smart Splitter	Reinforced Iron Plate(2), Rotor(2), A.I. Limiter(1)	Smart Splitter(1)	1	Build Tool	Input Added: Reinforced Iron Plate(2), Input Added: Rotor(2), Input Removed: Encased Industrial Beam(2), Input Removed: Motor(1)
+Supercomputer	Computer(2), A.I. Limiter(2), High-Speed Connector(3), Plastic(28)	Supercomputer(1)	32	Manufacturer, Workbench	Input Amt Changed: Plastic(21=>28)
+Power Pole Mk.3	High-Speed Connector(2), Steel Pipe(2), Rubber(3)	Power Pole Mk.3(1)	1	Build Tool	Input Amt Changed: High-Speed Connector(1=>2), Input Added: Rubber(3), Input Removed: Concrete(3)
+Programmable Splitter	Heavy Modular Frame(1), Motor(1), Supercomputer(1)	Programmable Splitter(1)	1	Build Tool	
+Geo Thermal Generator	Supercomputer(8), Heavy Modular Frame(16), High-Speed Connector(16), Copper Sheet(40), Rubber(80)	Geo Thermal Generator(1)	1	Build Tool	Input Amt Changed: Heavy Modular Frame(8=>16), Input Added: High-Speed Connector(16), Input Added: Copper Sheet(40), Input Amt Changed: Rubber(50=>80), Input Removed: Cable(30)
+Color Gun	Iron Plate(5), Screw(80), Wire(40)	Color Gun(1)	80	Workshop	
+Color Cartridge	Flower Petals(25)	Color Cartridge(50)	40	Constructor, Workshop, Workbench	
+Biomass (Mycelia)	Mycelia(10)	Biomass(10)	4	Constructor, Workbench	
+Parachute	Fabric(10), Cable(5)	Parachute(5)	40	Workshop	
+Nutritional Inhaler	Bacon Agaric(1), Paleberry(2), Beryl Nut(3), Mycelia(5)	Medicinal Inhaler(1)	20	Workshop	
+Medicinal Inhaler	Bacon Agaric(1), Paleberry(3), Beryl Nut(7)	Medicinal Inhaler(1)	20	Workshop	new
+Power Shard (1)	Green Power Slug(1)	Power Shard(1)	10	Constructor, Workbench	
+Power Shard (2)	Yellow Power Slug(1)	Power Shard(2)	15	Constructor, Workbench	
+Power Shard (5)	Purple Power Slug(1)	Power Shard(5)	20	Constructor, Workbench	
+Explorer	Crystal Oscillator(5), Motor(5), Beacon(15), Heavy Modular Frame(5)	Explorer(1)	1	Build Tool	
+Radar Tower	Heavy Modular Frame(30), Crystal Oscillator(30), Beacon(20), Cable(100)	Radar Tower(1)	1	Build Tool	Input Amt Changed: Heavy Modular Frame(5=>30), Input Amt Changed: Crystal Oscillator(15=>30), Input Amt Changed: Beacon(10=>20), Input Amt Changed: Cable(50=>100)
+Black Powder	Coal(1), Sulfur(2)	Black Powder(1)	8	Workshop, Assembler, Workbench	
+Nobelisk Detonator	Object Scanner(5), Encased Industrial Beam(5), Cable(50)	Nobelisk Detonator(1)	80	Workshop	Input Amt Changed: Encased Industrial Beam(10=>5)
+Rifle	Steel Pipe(25), Heavy Modular Frame(3), Circuit Board(20), Screw(250)	Rifle(1)	120	Workshop	
+Rifle Cartridge	Beacon(1), Steel Pipe(10), Black Powder(10), Rubber(10)	Rifle Cartridge(5)	20	Workshop, Manufacturer, Workbench	Input Added: Beacon(1), Input Amt Changed: Steel Pipe(4=>10), Input Added: Black Powder(10), Input Added: Rubber(10), Input Removed: Nobelisk(1), Output Amt Changed: Cartridge(4=>5)
+Wall Conveyor x3	Iron Plate(3), Concrete(3)	Wall Conveyor x3(1)	1	Build Tool	
+Wall Conveyor x2	Iron Plate(3), Concrete(3)	Wall Conveyor x2(1)	1	Build Tool	
+Wall Conveyor x1	Iron Plate(3), Concrete(3)	Wall Conveyor x1(1)	1	Build Tool	
+Wall Conveyor x3	Iron Plate(3), Concrete(3)	Wall Conveyor x3(1)	1	Build Tool	
+Wall Conveyor x2	Iron Plate(3), Concrete(3)	Wall Conveyor x2(1)	1	Build Tool	
+Wall Conveyor x1	Iron Plate(3), Concrete(3)	Wall Conveyor x1(1)	1	Build Tool	
+Conveyor Wall Mount	Iron Rod(2), Iron Plate(2), Concrete(2)	Conveyor Wall Mount(1)	1	Build Tool	new
+Curved Foundation	Concrete(6)	Curved Foundation(1)	1	Build Tool	new
+Curved Inverted Foundation	Concrete(6)	Curved Inverted Foundation(1)	1	Build Tool	new
+Curved Corner Foundation	Concrete(6)	Curved Corner Foundation(1)	1	Build Tool	new
+Curved Corner Inverted Foundation	Concrete(6)	Curved Corner Inverted Foundation(1)	1	Build Tool	new
+Cyber Wagon	Reinforced Iron Plate(10)	Cyber Wagon(1)	1	Build Tool	new
+Corner Ramp Down 8m x 1m	Concrete(2)	Corner Ramp Down 8m x 1m(1)	1	Build Tool	new
+Corner Ramp Up 8m x 1m	Concrete(2)	Corner Ramp Up 8m x 1m(1)	1	Build Tool	new
+Corner Ramp Down 8m x 2m	Concrete(3)	Corner Ramp Down 8m x 2m(1)	1	Build Tool	new
+Corner Ramp Up 8m x 2m	Concrete(3)	Corner Ramp Up 8m x 2m(1)	1	Build Tool	new
+Corner Ramp Down 8m x 4m	Concrete(4)	Corner Ramp Down 8m x 4m(1)	1	Build Tool	new
+Corner Ramp Up 8m x 4m	Concrete(4)	Corner Ramp Up 8m x 4m(1)	1	Build Tool	new
+Wall Door Center	Iron Plate(3), Concrete(3)	Wall Door Center(1)	1	Build Tool	
+Wall Door Left	Iron Plate(3), Concrete(3)	Wall Door Left(1)	1	Build Tool	
+Wall Door Right	Iron Plate(3), Concrete(3)	Wall Door Right(1)	1	Build Tool	
+Wall Door Center	Iron Plate(3), Concrete(3)	Wall Door Center(1)	1	Build Tool	
+Wall Door Left	Iron Plate(3), Concrete(3)	Wall Door Left(1)	1	Build Tool	
+Wall Door Right	Iron Plate(3), Concrete(3)	Wall Door Right(1)	1	Build Tool	
+Gate 8m x 4m	Iron Plate(3), Concrete(3)	Gate 8m x 4m(1)	1	Build Tool	
+Factory Cart™	Reinforced Iron Plate(4), Iron Rod(4), Rotor(2)	Factory Cart™(1)	1	Workshop	new
+Pillar Base	Concrete(6)	Pillar Base(1)	1	Build Tool	new
+Pillar Middle	Concrete(6)	Pillar Middle(1)	1	Build Tool	new
+Pillar Top	Concrete(6)	Pillar Top(1)	1	Build Tool	new
+Ramp Inverted 8m x 4m	Concrete(5)	Ramp Inverted 8m x 4m(1)	1	Build Tool	new
+Ramp Double 8m x 8m	Concrete(5)	Ramp Double 8m x 8m(1)	1	Build Tool	new
+Foundation Frame	Concrete(6)	Foundation Frame(1)	1	Build Tool	new
+Foundation Glass	Concrete(6)	Foundation Glass(1)	1	Build Tool	new
+Pipeline Wall Support	Iron Rod(2), Iron Plate(1), Concrete(2)	Pipeline Wall Support(1)	1	Build Tool	new
+Pipeline Wall Through Hole	Iron Rod(2), Iron Plate(1), Concrete(2)	Pipeline Wall Through Hole(1)	1	Build Tool	new
+Stairs Left	Concrete(5), Iron Plate(4)	Stairs Left(1)	1	Build Tool	
+Stairs Right	Concrete(5), Iron Plate(4)	Stairs Right(1)	1	Build Tool	
+Walkway Crossing	Iron Rod(2), Iron Plate(1)	Walkway Crossing(1)	1	Build Tool	
+Walkway Ramp	Iron Rod(2), Iron Plate(1)	Walkway Ramp(1)	1	Build Tool	
+Walkway Straight	Iron Rod(2), Iron Plate(1)	Walkway Straight(1)	1	Build Tool	
+Walkway T-Crossing	Iron Rod(2), Iron Plate(1)	Walkway T-Crossing(1)	1	Build Tool	
+Walkway Turn	Iron Rod(2), Iron Plate(1)	Walkway Turn(1)	1	Build Tool	
+Wall Power Pole	Wire(4), Iron Rod(1)	Wall Power Pole(1)	1	Build Tool	new
+Double-sided Wall Power Pole	Wire(8), Iron Rod(3)	Double-sided Wall Power Pole(1)	1	Build Tool	new
+Double-sided Wall Power Pole Mk.3	High-Speed Connector(2), Steel Pipe(5)	Double-sided Wall Power Pole Mk.3(1)	1	Build Tool	new
+Wall Power Pole Mk.3	High-Speed Connector(4), Steel Pipe(2)	Wall Power Pole Mk.3(1)	1	Build Tool	new
+Wall Window 8m x 4m 01	Iron Plate(3), Concrete(3)	Wall Window 8m x 4m 01(1)	1	Build Tool	new
+Wall Window 8m x 4m 02	Iron Plate(3), Concrete(3)	Wall Window 8m x 4m 02(1)	1	Build Tool	new
+Wall Window 8m x 4m 04	Iron Plate(3), Concrete(3)	Wall Window 8m x 4m 04(1)	1	Build Tool	new

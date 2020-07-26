@@ -3,6 +3,13 @@ uuid = "0623bc24-339c-4e1c-acb5-6ab34ac782eb"
 authors = ["Gauthier Soleilhac <gsoleilhac@gmail.com> and contributors"]
 version = "0.1.0"
 
+[deps]
+CPLEX = "a076750e-1247-5638-91d2-ce28b192dca0"
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+InteractiveUtils = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
+JuMP = "4076af6c-e467-56ae-b986-b466b2749572"
+
 [compat]
 julia = "1"
 
