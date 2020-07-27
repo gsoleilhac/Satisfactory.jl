@@ -1,6 +1,4 @@
-abstract type Item end
-abstract type Resource <: Item end
-abstract type Product <: Item end
+abstract type Product end
 
 struct Limestone <: Product end
 struct IronOre <: Product end

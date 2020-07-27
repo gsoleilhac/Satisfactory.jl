@@ -2,15 +2,15 @@ struct Recipe
     name::String
     out::Vector{Tuple{DataType, Float64}}
     in::Vector{Tuple{DataType, Float64}}
-    building::Builing
+    building::Building
     duration::Float64
 end
 
-recipes(::Type{T}) where T <: Item = dict_recipes[T]
-recipes(::T) where T <: Item = recipes(T)
+recipes(::Type{T}) where T <: Product = dict_recipes[T]
+recipes(::T) where T <: Product = recipes(T)
 
-dependantRecipes(::Type{T}) where T <: Item = dependant_recipes[T]
-dependantRecipes(::T) where T <: Item = dependant_recipes(T)
+dependantRecipes(::Type{T}) where T <: Product = dependant_recipes[T]
+dependantRecipes(::T) where T <: Product = dependant_recipes(T)
 
 import Base.show, Base.==, Base.hash
 show(io::IO, r::Recipe) = print(io, "$(r.name)")
@@ -35,7 +35,6 @@ for row in eachrow(DataFrame(CSV.File(joinpath(@__DIR__, "recipes.txt"))))
         item = replace(item, r"\s|-|\." => "") # removes whitespaces, dots and dashes
         qty = parse(Float64, s_qty)
         type = eval(Symbol(item))
-        @show type, qty, qty / duration * 60
         push!(in, (type, qty / duration * 60))
     end
 
@@ -75,14 +74,14 @@ for row in eachrow(DataFrame(CSV.File(joinpath(@__DIR__, "recipes.txt"))))
 end
 push!(_recipes, Recipe("Water", [(Water, 120)], [], WaterExtractor, 6))
 
-const dict_recipes = Dict(p => Set{Tuple{Recipe, Float64}}() for p in union(subtypes(Product), subtypes(Resource)))
+const dict_recipes = Dict(p => Set{Tuple{Recipe, Float64}}() for p in subtypes(Product))
 for r in _recipes
     for (p, qty) in r.out
         push!(dict_recipes[p], (r, qty))
     end
 end  
 
-const dependant_recipes = Dict(p => Set{Tuple{Recipe, Float64}}() for p in union(subtypes(Product), subtypes(Resource)))
+const dependant_recipes = Dict(p => Set{Tuple{Recipe, Float64}}() for p in subtypes(Product))
 for r in _recipes
     for (p, qty) in r.in
         push!(dependant_recipes[p], (r, qty))
