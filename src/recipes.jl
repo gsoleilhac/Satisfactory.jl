@@ -6,11 +6,11 @@ struct Recipe
     duration::Float64
 end
 
-recipes(::Type{T}) where T <: Product = dict_recipes[T]
+recipes(::Type{T}) where T <: Product = dictProductRecipes[T]
 recipes(::T) where T <: Product = recipes(T)
 
-dependantRecipes(::Type{T}) where T <: Product = dependant_recipes[T]
-dependantRecipes(::T) where T <: Product = dependant_recipes(T)
+dependantRecipes(::Type{T}) where T <: Product = dictProductDependantRecipes[T]
+dependantRecipes(::T) where T <: Product = dictProductDependantRecipes(T)
 
 import Base.show, Base.==, Base.hash
 show(io::IO, r::Recipe) = print(io, "$(r.name)")
@@ -23,7 +23,7 @@ hash(r::Recipe, h::UInt) = hash(r.name, h)
 # replace Miner with Oil Extractor for Crude Oil
 # divide all liquid quantities by 1000
 # Fix quantities used for Plastic and Rubber
-const _recipes = Recipe[]
+const allRecipes = Recipe[]
 for row in eachrow(DataFrame(CSV.File(joinpath(@__DIR__, "recipes.txt"))))
     name, inputs, outputs, duration, buildings, _ = row
 
@@ -70,20 +70,20 @@ for row in eachrow(DataFrame(CSV.File(joinpath(@__DIR__, "recipes.txt"))))
         out = [(p, 2 * qty) for (p,qty) in out]
     end
 
-    push!(_recipes, Recipe(name, out, in, building, duration))
+    push!(allRecipes, Recipe(name, out, in, building, duration))
 end
-push!(_recipes, Recipe("Water", [(Water, 120)], [], WaterExtractor, 6))
+push!(allRecipes, Recipe("Water", [(Water, 120)], [], WaterExtractor, 6))
 
-const dict_recipes = Dict(p => Set{Tuple{Recipe, Float64}}() for p in subtypes(Product))
-for r in _recipes
+const dictProductRecipes = Dict(p => Set{Tuple{Recipe, Float64}}() for p in subtypes(Product))
+for r in allRecipes
     for (p, qty) in r.out
-        push!(dict_recipes[p], (r, qty))
+        push!(dictProductRecipes[p], (r, qty))
     end
 end  
 
-const dependant_recipes = Dict(p => Set{Tuple{Recipe, Float64}}() for p in subtypes(Product))
-for r in _recipes
+const dictProductDependantRecipes = Dict(p => Set{Tuple{Recipe, Float64}}() for p in subtypes(Product))
+for r in allRecipes
     for (p, qty) in r.in
-        push!(dependant_recipes[p], (r, qty))
+        push!(dictProductDependantRecipes[p], (r, qty))
     end
 end 

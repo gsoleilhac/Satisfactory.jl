@@ -52,7 +52,7 @@
         "Alternate: Quickwire Stator", "Alternate: Steel Rotor", "Alternate: Silicone Circuit Board", "Alternate: Cheap Silica", "Alternate: Compacted Coal", #Assembler
         "Alternate: Automated Speed Wiring" #Manufacturer
         ]
-    julia> lockedRecipes = setdiff(map(r -> r.name, filter(r -> occursin("Alternate:", r.name), _recipes)), unlocked)
+    julia> lockedRecipes = setdiff(map(r -> r.name, filter(r -> occursin("Alternate:", r.name), allRecipes)), unlocked)
 
     julia>  maximize!(ModularFrame ; resources = Dict(IronOre => 480), lockedRecipes = lockedRecipes)
     OPTIMAL
