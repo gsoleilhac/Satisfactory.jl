@@ -12,8 +12,7 @@ for p in subtypes(Product)
     @eval export $(nameof(p))
 end
 
-function maximize!(::Type{T} ; 
-    resources = Dict(), availableProducts = Dict(),
+function maximize!(::Type{T} ; resources::Dict,
     lockedRecipes = String[], allowMultiRecipes = true) where T <: Product
     
     m = Model(CPLEX.Optimizer)
@@ -22,33 +21,26 @@ function maximize!(::Type{T} ;
 
     @objective(m, Max, x[T] - sum(qty * y[r] for (r, qty) in dependantRecipes(T)) - 1e-6 * sum(r.duration * y[r] for r in allRecipes))
 
-    # Link product variables to their recipes variables
-    #   Can't have more of a product than we have recipes producing it
+    # Limit on recipes for all base resources (-> recipes with empty input)
+    @constraint(m, [r in filter(r -> isempty(r.in), allRecipes)], y[r] * only(r.out)[2] <= get(resources, only(r.out)[1], 0))
+
+    # Can't have more of a product than we have recipes producing it
     for p in subtypes(Product)
-        @constraint(m, x[p] == sum(qty * y[r] for (r, qty) in recipes(p)) + get(availableProducts, p, 0))
+        if p in (Limestone, IronOre, CopperOre, CateriumOre, Coal, RawQuartz, Sulfur, Bauxite, SAMOre, Uranium, Water, CrudeOil)
+            @constraint(m, x[p] <= sum(qty * y[r] for (r, qty) in recipes(p)))
+        else
+            @constraint(m, x[p] <= sum(qty * y[r] for (r, qty) in recipes(p)) + get(resources, p, 0))
+        end
         if !allowMultiRecipes
             @constraint(m, [y[r] for (r, qty) in recipes(p)] in SOS1()) # only use 1 recipe to produce a specific product
         end
     end
 
-    # For each Product
-    #   Make sure we have enough of that product for all recipes depending on it
-    for p in subtypes(Product)
-        @constraint(m, x[p] >= sum(qty * y[r] for (r, qty) in dependantRecipes(p)))
-    end
-
-    # If no limit is set for these resources, assume 0 by default
-    get!.(Ref(resources), (Limestone, IronOre, CopperOre, CateriumOre, Coal, RawQuartz, Sulfur, Bauxite, SAMOre, Uranium, Water, CrudeOil), 0)
-    for (r, v) in resources
-        @constraint(m, x[r] <= v)
-    end
+    # For each Product, make sure we have enough of that product for all recipes depending on it
+    @constraint(m, [p in subtypes(Product)], x[p] >= sum(qty * y[r] for (r, qty) in dependantRecipes(p)))
 
     # Disallow use of locked recipes
-    for r in allRecipes
-        if r.name in lockedRecipes
-            @constraint(m, y[r] == 0)
-        end
-    end
+    @constraint(m, [r in allRecipes ; r.name in lockedRecipes], y[r] == 0)
 
     JuMP.set_silent(m)
     optimize!(m);
@@ -56,43 +48,39 @@ function maximize!(::Type{T} ;
     print_results(m, 1.)
 end
 
-function maximizeDiscrete!(::Type{T}, frac = 1/4 ; 
-    resources = Dict(), availableProducts = Dict(),
+function maximizeDiscrete!(::Type{T}, frac = 1/4 ; resources::Dict,
     lockedRecipes = String[], allowMultiRecipes = true) where T <: Product
     
     m = Model(CPLEX.Optimizer)
     @variable(m, 0 <= x[p in subtypes(Product)] <= 10000)
     @variable(m, 0 <= y[r in allRecipes] <= 10000, Int)
 
+    for r in filter(r -> isempty(r.in), allRecipes)
+        unset_integer(y[r])
+    end
+
     @objective(m, Max, x[T] - sum(qty * y[r] for (r, qty) in dependantRecipes(T)) - 1e-6 * sum(r.duration * y[r] for r in allRecipes))
 
-    # Link product variables to their recipes variables
-    #   Can't have more of a product than we have recipes producing it
+    # Limit on recipes for all base resources (-> recipes with empty input)
+    @constraint(m, [r in filter(r -> isempty(r.in), allRecipes)], frac * y[r] * only(r.out)[2] <= get(resources, only(r.out)[1], 0))
+
+    # Can't have more of a product than we have recipes producing it
     for p in subtypes(Product)
-        @constraint(m, x[p] == sum(frac * qty * y[r] for (r, qty) in recipes(p)) + get(availableProducts, p, 0))
+        if p in (Limestone, IronOre, CopperOre, CateriumOre, Coal, RawQuartz, Sulfur, Bauxite, SAMOre, Uranium, Water, CrudeOil)
+            @constraint(m, x[p] <= sum(frac * qty * y[r] for (r, qty) in recipes(p)))
+        else
+            @constraint(m, x[p] <= sum(frac * qty * y[r] for (r, qty) in recipes(p)) + get(resources, p, 0))
+        end
         if !allowMultiRecipes
             @constraint(m, [y[r] for (r, qty) in recipes(p)] in SOS1()) # only use 1 recipe to produce a specific product
         end
     end
-
-    # For each Product
-    #   Make sure we have enough of that product for all recipes depending on it
-    for p in subtypes(Product)
-        @constraint(m, x[p] >= sum(frac * qty * y[r] for (r, qty) in dependantRecipes(p)) )
-    end
-
-    # If no limit is set for these resources, assume 0 by default
-    get!.(Ref(resources), (Limestone, IronOre, CopperOre, CateriumOre, Coal, RawQuartz, Sulfur, Bauxite, SAMOre, Uranium, Water, CrudeOil), 0)
-    for (r, v) in resources
-        @constraint(m, x[r] <= v)
-    end
+    
+    # For each Product, make sure we have enough of that product for all recipes depending on it
+    @constraint(m, [p in subtypes(Product)], x[p] >= sum(frac * qty * y[r] for (r, qty) in dependantRecipes(p)))
 
     # Disallow use of locked recipes
-    for r in allRecipes
-        if r.name in lockedRecipes
-            @constraint(m, y[r] == 0)
-        end
-    end
+    @constraint(m, [r in allRecipes ; r.name in lockedRecipes], y[r] == 0)
 
     JuMP.set_silent(m)
     optimize!(m);
@@ -190,7 +178,7 @@ function buildGraph(returnedProducts, returnedRecipes)
     # gplot(g, x, y, nodelabel = [labels ; "" ; "" ; ""; ""], edgelabel=w, 
     #     edgelabeldistx=0., edgelabeldisty=0., nodelabeldist=3., NODESIZE=0.03, NODELABELSIZE=3, EDGELABELSIZE=3, 
     #     nodesize=[fill(1., length(returnedRecipes)) ; 0.1 ; 0.1 ; 0.1 ; 0.1])
-    gplot(g, nodelabel = labels, edgelabel=edgeLabels, edgelabeldistx=0., edgelabeldisty=0., NODESIZE=0.01, NODELABELSIZE=2, EDGELABELSIZE = 2)
+    gplot(g, nodelabel = labels, edgelabel=edgeLabels, edgelabeldistx=-1., edgelabeldisty=0., NODESIZE=0.03, NODELABELSIZE=2, EDGELABELSIZE = 2)
 end
 
 unlocked = [
