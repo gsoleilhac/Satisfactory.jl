@@ -1,10 +1,8 @@
 ```julia
-using Satisfactory
-```
+  >julia ]dev https://github.com/gsoleilhac/Satisfactory.jl
+  >julia using Satisfactory
 
-
-```julia
-  maximize!(ModularFrame ; resources = Dict(IronOre => 480))
+  >julia maximize!(ModularFrame ; resources = Dict(IronOre => 480))
     OPTIMAL
     23.162
     
@@ -50,18 +48,15 @@ using Satisfactory
 <img src="./examples/output_1_1.svg">
 
 ```julia
-unlocked = [
+  >julia unlocked = [
     "Alternate: Wet Concrete", "Alternate: Polymer Resin", "Alternate: Recycled Rubber", "Alternate: Recycled Plastic", "Alternate: Pure Copper Ingot", # Refinery
     "Alternate: Steel Rod", "Alternate: Steel Screw", "Alternate: Iron Wire", # Constructor
     "Alternate: Encased Industrial Pipe", "Alternate: Bolted Frame", "Alternate: Coated Iron Plate", "Alternate: Copper Rotor",  #Assembler
     "Alternate: Quickwire Stator", "Alternate: Steel Rotor", "Alternate: Silicone Circuit Board", "Alternate: Cheap Silica", "Alternate: Compacted Coal", #Assembler
     "Alternate: Automated Speed Wiring" #Manufacturer
     ]
-lockedRecipes = setdiff(map(r -> r.name, filter(r -> occursin("Alternate:", r.name), allRecipes)), unlocked);
-```
-
-```julia
-  maximize!(ModularFrame ; resources  = Dict(IronOre => 480), lockedRecipes)
+  >julia lockedRecipes = setdiff(map(r -> r.name, filter(r -> occursin("Alternate:", r.name), allRecipes)), unlocked);
+  >julia maximize!(ModularFrame ; resources  = Dict(IronOre => 480), lockedRecipes)
 
     OPTIMAL
     19.999
@@ -108,7 +103,7 @@ lockedRecipes = setdiff(map(r -> r.name, filter(r -> occursin("Alternate:", r.na
 <img src="./examples/output_3_1.svg">
 
 ```julia
-maximizeDiscrete!(Supercomputer, 1/3; # Only allows buildings to run at 33%, 66% or 100%
+>julia maximizeDiscrete!(Supercomputer, 1/3; # Only allows buildings to run at 33%, 66% or 100%
     resources = Dict(CrudeOil => 210, Quickwire => 5000, CircuitBoard => 50, 
     Cable => 250, Plastic => 500, Screw => 5000, CopperSheet => 1000), 
     lockedRecipes = [lockedRecipes ; "Alternate: Recycled Plastic"])
