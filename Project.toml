@@ -16,6 +16,7 @@ LightGraphs = "093fc24a-ae57-5d10-9952-331d41423f4d"
 CPLEX = "0.6"
 CSV = "0.7"
 DataFrames = "0.21"
+GraphPlot = "0.4"
 JuMP = "0.21"
 julia = "1"
 
