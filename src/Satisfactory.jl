@@ -1,6 +1,7 @@
 module Satisfactory
 
-using JuMP, CPLEX, DataFrames, InteractiveUtils, CSV, LightGraphs, GraphPlot
+using JuMP, Cbc, DataFrames, CSV, LightGraphs, LayeredLayouts, Plots
+using InteractiveUtils: subtypes
 
 @enum Building Smelter Constructor Assembler Manufacturer Refinery Miner Foundry WaterExtractor OilExtractor
 
@@ -15,9 +16,9 @@ end
 function maximize!(::Type{T} ; resources::Dict,
     lockedRecipes = String[], allowMultiRecipes = true) where T <: Product
     
-    m = Model(CPLEX.Optimizer)
-    @variable(m, 0 <= x[p in subtypes(Product)] <= 10000)
-    @variable(m, 0 <= y[r in allRecipes] <= 10000)
+    m = Model(Cbc.Optimizer)
+    @variable(m, 0 <= x[p in subtypes(Product)] <= 100_000_000)
+    @variable(m, 0 <= y[r in allRecipes] <= 100_000_000)
 
     @objective(m, Max, x[T] - sum(qty * y[r] for (r, qty) in dependantRecipes(T)) - 1e-6 * sum(r.duration * y[r] for r in allRecipes))
 
@@ -51,7 +52,7 @@ end
 function maximizeDiscrete!(::Type{T}, frac = 1/4 ; resources::Dict,
     lockedRecipes = String[], allowMultiRecipes = true) where T <: Product
     
-    m = Model(CPLEX.Optimizer)
+    m = Model(Cbc.Optimizer)
     @variable(m, 0 <= x[p in subtypes(Product)] <= 10000)
     @variable(m, 0 <= y[r in allRecipes] <= 10000, Int)
 
@@ -126,10 +127,10 @@ function print_results(m, frac)
         end
     end
 
-    buildGraph(returnedProducts, returnedRecipes)
+    buildGraph(returnedRecipes)
 end
 
-function buildGraph(returnedProducts, returnedRecipes)
+function buildGraph(returnedRecipes)
     isempty(returnedRecipes) && return
     g = SimpleDiGraph()
     add_vertices!(g, length(returnedRecipes))
@@ -147,38 +148,23 @@ function buildGraph(returnedProducts, returnedRecipes)
     end
 
     labels = [r.name  * "(" * string(round(used, digits=3)) * ")" for (r, used) in returnedRecipes]
+    xs, ys = LayeredLayouts.solve_positions(LayeredLayouts.Zarate(), g)
 
-    # sources = findall(==(0), indegree(g))
-
-    # distances = maximum(map(x -> x == typemax(Int) ? 0 : x, gdistances(g, s)) for s in sources)
-    # distances = zeros(length(returnedRecipes))
-    # for s in sources
-    #     d = map(x -> x == typemax(Int) ? 0 : x, gdistances(g, s))
-    #     for i = 1:length(returnedRecipes)
-    #         distances[i] = max(distances[i], d[i])
-    #     end
-    # end
-
-    # x = Float64.(distances) ./ (maximum(distances) + 1)
-    # y = [0. for _ = 1:length(distances)]
+    p = plot(showaxis=false, ticks=false, xlims = (0.5, maximum(xs) + 0.5))
     
-    # for d = 0:maximum(distances)
-    #     f = findall(==(d), distances)
-    #     if length(f) == 1
-    #         y[f[1]] = 0.5
-    #     else
-    #         y[f] .= range(0.1, 0.9, length=length(f))
-    #     end
-    # end
+    for (ind, edge) in enumerate(edges(g))
+        plot!(p, 
+            [xs[edge.src], (xs[edge.src] + xs[edge.dst]) / 2, xs[edge.dst]],
+            [ys[edge.src], (ys[edge.src] + ys[edge.dst]) / 2, ys[edge.dst]], 
+            text = ["", text(edgeLabels[ind], pointsize=6, valign=:top), ""],
+            arrow=Plots.arrow(:closed),
+            label=nothing,
+        )
+    end
 
-    # add_vertices!(g, 4)
-    # append!(x, [-0.1, -0.1, 1.1, 1.1])
-    # append!(y, [-0.1, 1.1, -0.1, 1.1])
+    scatter!(p, xs, ys, text=text.(labels, pointsize=6, valign=:bottom), label=nothing,)
 
-    # gplot(g, x, y, nodelabel = [labels ; "" ; "" ; ""; ""], edgelabel=w, 
-    #     edgelabeldistx=0., edgelabeldisty=0., nodelabeldist=3., NODESIZE=0.03, NODELABELSIZE=3, EDGELABELSIZE=3, 
-    #     nodesize=[fill(1., length(returnedRecipes)) ; 0.1 ; 0.1 ; 0.1 ; 0.1])
-    gplot(g, nodelabel = labels, edgelabel=edgeLabels, edgelabeldistx=-1., edgelabeldisty=0., NODESIZE=0.03, NODELABELSIZE=2, EDGELABELSIZE = 2)
+    p
 end
 
 unlocked = [

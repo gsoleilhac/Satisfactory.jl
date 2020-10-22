@@ -64,7 +64,7 @@ Alternate: Coated Iron Plate	Iron Ingot(10), Plastic(4)	Iron Plate(15)	12	Assemb
 Alternate: Coke Steel Ingot	Iron Ore(15), Petroleum Coke(15)	Steel Ingot(20)	12	Foundry	new
 Alternate: Copper Alloy Ingot	Copper Ore(10), Iron Ore(5)	Copper Ingot(20)	12	Foundry	new
 Alternate: Copper Rotor	Copper Sheet(6), Screw(52)	Rotor(3)	16	Assembler	new
-Alternate: Diluted Packaged Fuel	Packaged Heavy Oil Residue(3), Water(3)	Packaged Fuel(4)	4	Oil Refinery	new
+Alternate: Diluted Packaged Fuel	Packaged Heavy Oil Residue(1), Packaged Water(2)	Packaged Fuel(2)	2	Oil Refinery	new
 Alternate: Electrode - Aluminum Scrap	Alumina Solution(3), Coal(1)	Aluminum Scrap(5), Water(1)	2	Oil Refinery	new
 Electromagnetic Control Rod	Stator(3), A.I. Limiter(2)	Electromagnetic Control Rod(2)	30	Assembler, Workbench	Output Amt Changed: Electromagnetic Control Rod(1=>2)
 Encased Uranium Cell	Uranium Pellet(40), Concrete(9)	Encased Uranium Cell(10)	60	Assembler, Workbench	Input Added: Uranium Pellet(40), Input Removed: Uranium(45)

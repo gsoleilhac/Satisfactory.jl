@@ -45,7 +45,7 @@
     	13.383 Constructor
 ```
 
-<img src="./examples/output_1_1.svg">
+<img src="./examples/sat_fig1.png">
 
 ```julia
   >julia unlocked = [
@@ -100,7 +100,7 @@
     	10.0 Assembler
 ```
 
-<img src="./examples/output_3_1.svg">
+<img src="./examples/sat_fig2.png">
 
 ```julia
 >julia maximizeDiscrete!(Supercomputer, 1/3; # Only allows buildings to run at 33%, 66% or 100%
@@ -155,4 +155,4 @@
     	2.667 Manufacturer
 ```
 
-<img src="./examples/output_4_1.svg">
+<img src="./examples/sat_fig3.png">
