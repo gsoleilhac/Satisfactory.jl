@@ -80,10 +80,9 @@ for r in allRecipes
         push!(dictProductRecipes[p], (r, qty))
     end
 end  
-
 const dictProductDependantRecipes = Dict(p => Set{Tuple{Recipe, Float64}}() for p in subtypes(Product))
 for r in allRecipes
     for (p, qty) in r.in
         push!(dictProductDependantRecipes[p], (r, qty))
     end
-end 
+end
