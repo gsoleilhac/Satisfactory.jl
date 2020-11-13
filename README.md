@@ -18,3 +18,9 @@ maximizeDiscrete!(Supercomputer, 1/3 ; # only allows building to run at 33, 66, 
     resources = Dict(p => 300 for p in baseResources), alternates=["Wire", "Ingot"])
 ```
 <img src="./examples/fig3.png">
+
+```julia
+maximizeDiscrete!(NuclearFuelRod, 1, resources=Dict(p => 300 for p in baseResources), alternates=["Alternate: "], nodeLabelSize = 2, edgeLabelSize = 2)
+```
+<img src="./examples/fig4.png">
+

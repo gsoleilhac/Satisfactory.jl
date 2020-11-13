@@ -64,7 +64,7 @@ Alternate: Coated Iron Plate	Iron Ingot(10), Plastic(4)	Iron Plate(15)	12	Assemb
 Alternate: Coke Steel Ingot	Iron Ore(15), Petroleum Coke(15)	Steel Ingot(20)	12	Foundry	new
 Alternate: Copper Alloy Ingot	Copper Ore(10), Iron Ore(5)	Copper Ingot(20)	12	Foundry	new
 Alternate: Copper Rotor	Copper Sheet(6), Screw(52)	Rotor(3)	16	Assembler	new
-Alternate: Diluted Packaged Fuel	Packaged Heavy Oil Residue(1), Packaged Water(2)	Packaged Fuel(2)	2	Oil Refinery	new
+Alternate: Diluted Packaged Fuel	Heavy Oil Residue(1), Packaged Water(2)	Packaged Fuel(2)	2	Oil Refinery	new
 Alternate: Electrode - Aluminum Scrap	Alumina Solution(3), Coal(1)	Aluminum Scrap(5), Water(1)	2	Oil Refinery	new
 Electromagnetic Control Rod	Stator(3), A.I. Limiter(2)	Electromagnetic Control Rod(2)	30	Assembler, Workbench	Output Amt Changed: Electromagnetic Control Rod(1=>2)
 Encased Uranium Cell	Uranium Pellet(40), Concrete(9)	Encased Uranium Cell(10)	60	Assembler, Workbench	Input Added: Uranium Pellet(40), Input Removed: Uranium(45)
@@ -173,7 +173,7 @@ Alternate: Seismic Nobelisk	Black Powder(8), Steel Pipe(8), Crystal Oscillator(1
 Nobelisk	Black Powder(5), Steel Pipe(10)	Nobelisk(1)	20	Workshop, Assembler	Input Amt Changed: Steel Pipe(5=>10), Input Removed: Beacon(1)
 Alternate: Nuclear Fuel Unit	Encased Uranium Cell(50), Electromagnetic Control Rod(10), Crystal Oscillator(3), Beacon(6)	Nuclear Fuel Rod(3)	300	Manufacturer	
 Alternate: Recycled Plastic	Rubber(6), Fuel(5)	Plastic(12)	12	Oil Refinery	Input Amt Changed: Rubber(8=>6), Input Added: Fuel(5), Input Removed: Packaged Fuel(5), Output Amt Changed: Plastic(9=>12), Duration Changed(16.0=>12.0)
-Alternate: Fused Quckwire	Caterium Ingot(1), Copper Ingot(5)	Quickwire(12)	8	Assembler	Input Amt Changed: Copper Ingot(2=>5)
+Alternate: Fused Quickwire	Caterium Ingot(1), Copper Ingot(5)	Quickwire(12)	8	Assembler	Input Amt Changed: Copper Ingot(2=>5)
 Alternate: Radio Control System	Heat Sink(10), Supercomputer(1), Quartz Crystal(30)	Radio Control Unit(3)	48	Manufacturer	
 Alternate: Bolted Iron Plate	Iron Plate(16), Screw(50)	Reinforced Iron Plate(3)	12	Assembler	Input Amt Changed: Iron Plate(10=>16), Input Amt Changed: Screw(24=>50), Duration Changed(24.0=>12.0)
 Alternate: Stitched Iron Plate	Iron Plate(10), Wire(26)	Reinforced Iron Plate(3)	32	Assembler	Input Amt Changed: Iron Plate(6=>10), Input Amt Changed: Wire(30=>26), Duration Changed(24.0=>32.0)

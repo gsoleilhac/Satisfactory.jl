@@ -1,3 +1,5 @@
+@enum Building Smelter Constructor Assembler Manufacturer Refinery Miner Foundry WaterExtractor OilExtractor
+
 struct Recipe
     name::String
     out::Vector{Tuple{DataType, Float64}}
@@ -23,6 +25,7 @@ hash(r::Recipe, h::UInt) = hash(r.name, h)
 # replace Miner with Oil Extractor for Crude Oil
 # divide all liquid quantities by 1000
 # Fix quantities used for Plastic and Rubber
+# Fix products used for Alternate: Diluted Packaged Fuel
 const allRecipes = Recipe[]
 for row in eachrow(DataFrame(CSV.File(joinpath(@__DIR__, "recipes.txt"))))
     name, inputs, outputs, duration, buildings, _ = row
