@@ -78,7 +78,7 @@ function buildGraph(returnedRecipes, nodeLabelSize, edgeLabelSize, T, objValue)
         end
     end
     xs, ys, edge2path = LayeredLayouts.solve_positions(LayeredLayouts.Zarate(time_limit=LayeredLayouts.Dates.Second(0)), g)
-    p = plot(showaxis=false, ticks=false, xlims = (0.5, maximum(xs) + 2.))
+    p = plot(showaxis=false, ticks=false, xlims = (0.5, maximum(xs) + 2.), dpi = 300)
     
     for (edge, path) in edge2path
         x, y = path

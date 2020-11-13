@@ -25,7 +25,7 @@ function maximize!(::Type{T} ; resources::Dict, alternates = String[],
 end
 
 function maximizeDiscrete!(::Type{T}, frac = 1/4 ; resources::Dict, alternates = String[], 
-    allowMultiRecipes = true, nodeLabelSize = 4, edgeLabelSize = 4, minProductionThreshold = 1) where T <: Product
+    allowMultiRecipes = true, nodeLabelSize = 4, edgeLabelSize = 4, minProductionThreshold = 0.) where T <: Product
     
     m, x, y = maxModelMIP(T, frac ; resources, alternates, allowMultiRecipes, minProductionThreshold)
     JuMP.set_silent(m)
