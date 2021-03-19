@@ -17,8 +17,8 @@ const harvestedProducts = (AlienCarapace, AlienOrgans, FICSITCoupon, FlowerPetal
     Mycelia, PurplePowerSlug, SAMOre, Wood, YellowPowerSlug)
 const dictProductRecipes = Dict(p => Set{Tuple{Recipe, Float64}}() for p in subtypes(Product))
 const dictProductDependantRecipes = Dict(p => Set{Tuple{Recipe, Float64}}() for p in subtypes(Product))
-const baseResources = (Limestone, IronOre, CopperOre, CateriumOre, Coal, RawQuartz, Sulfur, Bauxite, Uranium, Water, CrudeOil)
-const maxResources = Dict(zip(baseResources, (52860, 70380, 28860, 11040, 31680, 10500, 3300, 7800, 1200, 100_000, 7500)))
+const baseResources = (Limestone, IronOre, CopperOre, CateriumOre, Coal, RawQuartz, Sulfur, Bauxite, Uranium, Water, CrudeOil, NitrogenGas)
+const maxResources = Dict(zip(baseResources, (52860, 70380, 28860, 11040, 31680, 10500, 3300, 7800, 1200, 100_000, 7500, 100_000)))
 
 readData()
 

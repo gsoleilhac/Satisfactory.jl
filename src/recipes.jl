@@ -1,4 +1,4 @@
-@enum Building Smelter Constructor Assembler Manufacturer Refinery Miner Foundry WaterExtractor OilExtractor Packager
+@enum Building Smelter Constructor Assembler Manufacturer Refinery Miner Foundry WaterExtractor OilExtractor Packager Blender ParticleAccelerator ResourceWellExtractor
 
 struct Recipe
     name::String
@@ -44,12 +44,10 @@ function readData()
         qty = oilPump.itemsPerCycle / oilPump.extractCycleTime * 60 / 1000
         push!(allRecipes, Recipe("$product", [(product, qty)], [], OilExtractor, 60))
     end
-    waterPump = data.miners.Build_WaterPump_C
-    for p in waterPump.allowedResources
-        product = classNameToProduct[p]
-        qty = waterPump.itemsPerCycle / waterPump.extractCycleTime * 60 / 1000
-        push!(allRecipes, Recipe("$product", [(product, qty)], [], WaterExtractor, 60))
-    end
+
+    push!(allRecipes, Recipe("Water", [(Water, 180)], [], WaterExtractor, 60))
+    push!(allRecipes, Recipe("Nitrogen Gas", [(NitrogenGas, 60)], [], ResourceWellExtractor, 60))
+    
 
     for r in allRecipes
         for (p, qty) in r.out
@@ -71,6 +69,7 @@ function readData()
         end
         if !haskey(dictProductRecipes, p)
             @warn "No recipe found to make $p"
+            dictProductRecipes[p] = Set()
         end
     end
 
