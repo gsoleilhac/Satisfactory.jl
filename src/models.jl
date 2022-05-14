@@ -1,15 +1,21 @@
 
-function maxModelLinear(::Type{T} ; resources::Dict, alternates = String[], allowMultiRecipes = true) where T <: Product
-    
+function maxModelLinear(::Type{T}; resources::Dict, alternates=String[], blacklist=String[], allowMultiRecipes=true) where {T<:Product}
+
     allowedRecipes = union(baseRecipes, filter(r -> any(alt -> occursin(alt, r.name), alternates), allRecipes))
+    filter!(r -> !(r.name in blacklist), allowedRecipes)
 
     m = Model(Cbc.Optimizer)
-    @variable(m, 0 <= x[p in subtypes(Product)] <= 100_000_000)
-    @variable(m, 0 <= y[r in allRecipes] <= 100_000_000)
+    @variable(m, 0 <= x[p in subtypes(Product)])
+    @variable(m, 0 <= y[r in allRecipes])
 
-    @objective(m, Max, x[T] - sum(qty * y[r] for (r, qty) in dependantRecipes(T)) 
-        - 1e-6 * sum(y[r] for r in allowedRecipes)
-        - 1e-6 * sum(y[r] for r in allRecipes if occursin("Alternate", r.name)))
+    @objective(
+        m,
+        Max,
+        x[T] - sum(qty * y[r] for (r, qty) in dependantRecipes(T))
+        -
+        1e-5 * sum(y[r] for r in allowedRecipes)
+        # - 1e-5 * sum(y[r] for r in allRecipes if occursin("Alternate", r.name))
+    )
 
     # Limit on recipes for all base resources (-> recipes with empty input)
     @constraint(m, [r in filter(r -> isempty(r.in), allRecipes)], y[r] * only(r.out)[2] <= get(resources, only(r.out)[1], 0))
@@ -29,21 +35,23 @@ function maxModelLinear(::Type{T} ; resources::Dict, alternates = String[], allo
     # For each Product, make sure we have enough of that product for all recipes depending on it
     @constraint(m, [p in subtypes(Product)], x[p] >= sum(qty * y[r] for (r, qty) in dependantRecipes(p)))
 
-    @constraint(m, [r in allRecipes ; !(r in allowedRecipes)], y[r] == 0)
+    @constraint(m, [r in allRecipes; !(r in allowedRecipes)], y[r] == 0)
 
     return m, x, y
 end
 
-function maxModelMIP(::Type{T}, frac = 1/4 ; resources::Dict, alternates = String[], allowMultiRecipes = true, minProductionThreshold = 1) where T <: Product
-    
+function maxModelMIP(::Type{T}, frac=1 / 4; resources::Dict, alternates=String[], blacklist=String[], allowMultiRecipes=true, minProductionThreshold=1) where {T<:Product}
+
     allowedRecipes = union(baseRecipes, filter(r -> any(alt -> occursin(alt, r.name), alternates), allRecipes))
+    filter!(r -> !(r.name in blacklist), allowedRecipes)
 
     m = Model(Cbc.Optimizer)
-    @variable(m, 0 <= x[p in subtypes(Product)] <= 100_000_000 / frac)
-    @variable(m, 0 <= y[r in allRecipes] <= 100_000_000 / frac, Int)
+    @variable(m, 0 <= x[p in subtypes(Product)])
+    @variable(m, 0 <= y[r in allRecipes], Int)
     @variable(m, is_used[r in allRecipes], Bin)
 
-    M = 100_000_000 / frac ; minProductionThreshold /= frac
+    M = 100_000_000 / frac
+    minProductionThreshold /= frac
     @constraint(m, [r in allRecipes], y[r] >= minProductionThreshold * is_used[r])
     @constraint(m, [r in allRecipes], y[r] <= M * is_used[r])
 
@@ -67,11 +75,11 @@ function maxModelMIP(::Type{T}, frac = 1/4 ; resources::Dict, alternates = Strin
             @constraint(m, [y[r] for (r, qty) in recipes(p)] in SOS1()) # only use 1 recipe to produce a specific product
         end
     end
-    
+
     # For each Product, make sure we have enough of that product for all recipes depending on it
     @constraint(m, [p in subtypes(Product)], x[p] >= sum(frac * qty * y[r] for (r, qty) in dependantRecipes(p)))
 
-    @constraint(m, [r in allRecipes ; !(r in allowedRecipes)], y[r] == 0)
+    @constraint(m, [r in allRecipes; !(r in allowedRecipes)], y[r] == 0)
 
     return m, x, y
 end
