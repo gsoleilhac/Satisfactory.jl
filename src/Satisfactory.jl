@@ -1,6 +1,6 @@
 module Satisfactory
 
-using JuMP, Cbc, DataFrames, JSON3, Graphs, LayeredLayouts, Plots, SankeyPlots
+using JuMP, HiGHS, DataFrames, JSON3, Graphs, LayeredLayouts, Plots, SankeyPlots
 using InteractiveUtils: subtypes
 
 include("products.jl")
@@ -17,8 +17,8 @@ export maximize!, maximizeDiscrete!
 
 const allRecipes = Recipe[]
 const baseRecipes = Recipe[]
-const harvestedProducts = (AlienCarapace, AlienOrgans, FICSITCoupon, FlowerPetals, GreenPowerSlug, Leaves,
-    Mycelia, PurplePowerSlug, SAMOre, Wood, YellowPowerSlug)
+# const harvestedProducts = (AlienCarapace, AlienOrgans, FICSITCoupon, FlowerPetals, GreenPowerSlug, Leaves,
+#     Mycelia, PurplePowerSlug, SAMOre, Wood, YellowPowerSlug)
 const dictProductRecipes = Dict(p => Set{Tuple{Recipe,Float64}}() for p in subtypes(Product))
 const dictProductDependantRecipes = Dict(p => Set{Tuple{Recipe,Float64}}() for p in subtypes(Product))
 const baseResources = (Limestone, IronOre, CopperOre, CateriumOre, Coal, RawQuartz, Sulfur, Bauxite, Uranium, Water, CrudeOil, NitrogenGas)
@@ -36,7 +36,6 @@ end
 
 function maximizeDiscrete!(::Type{T}, frac=1 / 4; resources::Dict, alternates=String[], blacklist=[],
     allowMultiRecipes=true, nodeLabelSize=4, edgeLabelSize=4, minProductionThreshold=0.0) where {T<:Product}
-
     m, x, y = maxModelMIP(T, frac; resources, alternates, blacklist, allowMultiRecipes, minProductionThreshold)
     JuMP.set_silent(m)
     optimize!(m)

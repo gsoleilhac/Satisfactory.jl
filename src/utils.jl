@@ -70,13 +70,36 @@ function buildGraph(returnedRecipes, nodeLabelSize, edgeLabelSize, T, objValue)
     end
 
     labels = [r.name * "(" * intOrRound(used) * ")" for (r, used) in returnedRecipes]
+    
     for (i, (r, used)) in enumerate(returnedRecipes)
         x = findfirst(y -> y[1] == T, r.out)
         if x !== nothing
             labels[i] = labels[i] * " => " * intOrRound(r.out[x][2] * used)
         end
     end
-    xs, ys, edge2path = LayeredLayouts.solve_positions(LayeredLayouts.Zarate(time_limit=LayeredLayouts.Dates.Second(0)), g)
+
+    xs, ys, edge2path = nothing, nothing, nothing
+
+    if length(edges(g)) == length(vertices(g)) - 1
+        # solve_positions seems to error when given a line graph
+        startnode = only(filter(v -> isempty(Graphs.inneighbors(g, v)), vertices(g)))
+        ys = ones(length(vertices(g)))
+        xs = zeros(length(vertices(g)))
+        xs[startnode] = 1
+        i = 2
+        edge2path = Dict{Graphs.SimpleGraphs.SimpleEdge{Int64}, Tuple{Array{Float64,1},Array{Float64,1}}}()
+        cur = startnode
+        while !isempty(outneighbors(g, cur))
+            next = only(outneighbors(g, cur))
+            xs[next] = i
+            i += 1
+            edge2path[Edge(cur, next)] = ([xs[cur], xs[next]], [1., 1.])
+            cur = next  
+        end
+    else
+        xs, ys, edge2path = LayeredLayouts.solve_positions(LayeredLayouts.Zarate(time_limit=LayeredLayouts.Dates.Second(0)), g)
+    end
+
     p = plot(showaxis=false, ticks=false, xlims=(0.5, maximum(xs) + 2.0), dpi=300)
 
     for (edge, path) in edge2path
@@ -94,9 +117,8 @@ function buildGraph(returnedRecipes, nodeLabelSize, edgeLabelSize, T, objValue)
         annotate!(p, [((x[end-1] + x[end]) / 2, (y[end-1] + y[end]) / 2, ann)])
     end
 
-    scatter!(p, xs, ys, text=text.(labels, pointsize=nodeLabelSize, valign=:bottom, halign=:left), label=nothing,)
+    return scatter!(p, xs, ys, text=text.(labels, pointsize=nodeLabelSize, valign=:bottom, halign=:left), label=nothing,)
 
-    p
 end
 
 function buildSankeyGraph(returnedRecipes, nodeLabelSize, edgeLabelSize, T, objValue)

@@ -4,7 +4,7 @@ function maxModelLinear(::Type{T}; resources::Dict, alternates=String[], blackli
     allowedRecipes = union(baseRecipes, filter(r -> any(alt -> occursin(alt, r.name), alternates), allRecipes))
     filter!(r -> !(r.name in blacklist), allowedRecipes)
 
-    m = Model(Cbc.Optimizer)
+    m = Model(HiGHS.Optimizer)
     @variable(m, 0 <= x[p in subtypes(Product)])
     @variable(m, 0 <= y[r in allRecipes])
 
@@ -45,7 +45,7 @@ function maxModelMIP(::Type{T}, frac=1 / 4; resources::Dict, alternates=String[]
     allowedRecipes = union(baseRecipes, filter(r -> any(alt -> occursin(alt, r.name), alternates), allRecipes))
     filter!(r -> !(r.name in blacklist), allowedRecipes)
 
-    m = Model(Cbc.Optimizer)
+    m = Model(HiGHS.Optimizer)
     @variable(m, 0 <= x[p in subtypes(Product)])
     @variable(m, 0 <= y[r in allRecipes], Int)
     @variable(m, is_used[r in allRecipes], Bin)

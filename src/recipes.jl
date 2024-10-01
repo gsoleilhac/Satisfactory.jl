@@ -1,4 +1,4 @@
-@enum Building Smelter Constructor Assembler Manufacturer Refinery Miner Foundry WaterExtractor OilExtractor Packager Blender ParticleAccelerator ResourceWellExtractor
+@enum Building Smelter Constructor Assembler Manufacturer Refinery Miner Foundry WaterExtractor OilExtractor Packager Blender ParticleAccelerator ResourceWellExtractor Converter QuantumEncoder    
 
 struct Recipe
     name::String
@@ -18,7 +18,7 @@ function readData()
     _products = unique(union((p.item for r in _recipes for p in r.products), (p.item for r in _recipes for p in r.ingredients)))
     
     classNameToProduct = Dict{String,Type{<:Product}}(data.items[p].className => nameToType(data.items[p].name) for p in _products if haskey(data.items, p))
-    classNameToBuilding = Dict{String,Building}(b.className => nameToType(b.name) for b in _buildings)
+    classNameToBuilding = Dict{String, Building}(b.className => nameToType(b.name) for b in _buildings)
 
     empty!(allRecipes)
     empty!(dictProductDependantRecipes)
@@ -33,19 +33,22 @@ function readData()
         push!(allRecipes, Recipe(r.name, out, in, building, r.time))
     end
 
-    minerMK1 = data.miners.Build_MinerMk1_C
+    minerMK1 = data.miners.Desc_MinerMk1_C
     for p in minerMK1.allowedResources
         product = classNameToProduct[p]
         qty = minerMK1.itemsPerCycle / minerMK1.extractCycleTime * 60
         push!(allRecipes, Recipe(data.items[p].name, [(product, qty)], [], Miner, 60))
     end
-    oilPump = data.miners.Build_OilPump_C
-    for p in oilPump.allowedResources
-        product = classNameToProduct[p]
-        qty = oilPump.itemsPerCycle / oilPump.extractCycleTime * 60 / 1000
-        push!(allRecipes, Recipe(data.items[p].name, [(product, qty)], [], OilExtractor, 60))
-    end
+    
+    # oilPump = data.miners.Desc_MinerMk1_C
+    # for p in oilPump.allowedResources
+    #     product = classNameToProduct[p]
+    #     qty = oilPump.itemsPerCycle / oilPump.extractCycleTime * 60 / 1000
+    #     @show product
+    #     push!(allRecipes, Recipe(data.items[p].name, [(product, qty)], [], OilExtractor, 60))
+    # end
 
+    push!(allRecipes, Recipe("Crude Oil", [(CrudeOil, 60)], [], OilExtractor, 60))
     push!(allRecipes, Recipe("Water", [(Water, 180)], [], WaterExtractor, 60))
     push!(allRecipes, Recipe("Nitrogen Gas", [(NitrogenGas, 60)], [], ResourceWellExtractor, 60))
     
@@ -62,14 +65,11 @@ function readData()
     end
 
     for p in subtypes(Product)
-        if p in harvestedProducts
-            dictProductRecipes[p] = Set()
-        end
         if !haskey(dictProductDependantRecipes, p)
             dictProductDependantRecipes[p] = Set()
         end
         if !haskey(dictProductRecipes, p)
-            @warn "No recipe found to make $p"
+            @debug "No recipe found to make $p"
             dictProductRecipes[p] = Set()
         end
     end
@@ -88,6 +88,7 @@ end
 nameToType(s::AbstractString) = try 
     getfield(Satisfactory, Symbol(replace(s, r" |-|\." => ""))) # remove spaces, dashes and dots 
 catch e
+    @show s
     ErrorProductNotFound
 end
 
@@ -99,5 +100,5 @@ dependantRecipes(::T) where T <: Product = dictProductDependantRecipes(T)
 
 import Base.show, Base.==, Base.hash
 show(io::IO, r::Recipe) = print(io, "$(r.name)")
-hash(r::Recipe, h::UInt) = hash(r.name, h)
-==(r1::Recipe, r2::Recipe) = r1.name == r2.name
+hash(r::Recipe, h::UInt) = hash(r.name, hash(r.in, hash(r.building, h)))
+==(r1::Recipe, r2::Recipe) = r1.name == r2.name && r1.in == r2.in && r1.building == r2.building
