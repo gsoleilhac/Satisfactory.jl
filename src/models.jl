@@ -72,7 +72,8 @@ function maxModelMIP(::Type{T}, frac=1 / 4; resources::Dict, alternates=String[]
             @constraint(m, x[p] <= sum(frac * qty * y[r] for (r, qty) in recipes(p)) + get(resources, p, 0))
         end
         if !allowMultiRecipes
-            @constraint(m, [y[r] for (r, qty) in recipes(p)] in SOS1()) # only use 1 recipe to produce a specific product
+            # @constraint(m, [y[r] for (r, qty) in recipes(p)] in SOS1()) # only use 1 recipe to produce a specific product
+            @constraint(m, sum(is_used[r] for (r, qty) in recipes(p)) <= 1) # only use 1 recipe to produce a specific product
         end
     end
 
